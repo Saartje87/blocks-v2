@@ -1,0 +1,35 @@
+{
+  "name": "blocks-v2",
+  "version": "0.0.1",
+  "description": "Blockle blocks",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@bitbucket.org:Saartje87/blocks-v2.git",
+  "author": "Niek Saarberg <nsaarberg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf dist",
+    "dev": "node serve.js",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "esbuild": "^0.14.29",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "prettier": "^2.6.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
