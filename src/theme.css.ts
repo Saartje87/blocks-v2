@@ -20,18 +20,6 @@ export const vars = createThemeContract({
   // color: {
   //   black: '#000',
   //   white: '#fff',
-  //   text: '#000',
-  //   contentBackground: '#ffe2b8',
-  //   defaultMenuBackground: '#faa61b',
-  //   footer: '#241400',
-  //   bevers: '#f55b5b',
-  //   kabouters: '#8cc53f',
-  //   welpen: '#b6df7b',
-  //   gidsen: '#00aded',
-  //   verkenners: '#7bd6fa',
-  //   explorers: '#ec4a31',
-  //   stam: '#cfa475',
-  //   oudeTak: '#c0c0c0',
   // },
   // fontFamily: {
   //   cartoon: bdCartoonShoutFont,
