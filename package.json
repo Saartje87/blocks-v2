@@ -1,10 +1,8 @@
 {
-  "name": "blocks-v2",
+  "name": "@blockle/blocks-v2",
   "version": "0.0.1",
   "description": "Blockle blocks",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "repository": "git@bitbucket.org:Saartje87/blocks-v2.git",
   "author": "Niek Saarberg <nsaarberg@gmail.com>",
   "license": "MIT",
@@ -15,8 +13,12 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/esbuild-plugin": "^2.0.3",
     "esbuild": "^0.14.29",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
@@ -29,6 +31,8 @@
   },
   "peerDependencies": {},
   "dependencies": {
+    "@vanilla-extract/dynamic": "^2.0.2",
+    "@vanilla-extract/sprinkles": "^1.4.0",
     "react": "^18",
     "react-dom": "^18"
   }
