@@ -14,18 +14,16 @@ const shared = {
   plugins: [vanillaExtractPlugin()],
 };
 
-console.log(Object.keys({ ...dependencies, ...devDependencies }));
-
 build({
   ...shared,
   format: 'esm',
   outfile: './dist/index.esm.js',
-  target: ['esnext', 'node12.22.0'],
+  target: ['esnext'],
 });
 
 build({
   ...shared,
   format: 'cjs',
   outfile: './dist/index.cjs.js',
-  target: ['esnext', 'node12.22.0'],
+  target: ['esnext'],
 });

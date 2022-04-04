@@ -10,12 +10,12 @@ export const breakpoints = {
 export const vars = createThemeContract({
   space: {
     none: '0px',
-    gutter: '20px',
-    xsmall: '2px',
-    small: '6px',
-    medium: '8px',
-    large: '14px',
-    xlarge: '24px',
+    gutter: '0px',
+    xsmall: '0px',
+    small: '0px',
+    medium: '0px',
+    large: '0px',
+    xlarge: '0px',
   },
   // color: {
   //   black: '#000',
@@ -26,10 +26,10 @@ export const vars = createThemeContract({
   //   normal: "'Sora', sans-serif",
   // },
   fontSize: {
-    small: '12px',
-    medium: '14px',
-    large: '18px',
-    xlarge: '24px',
+    small: '0px',
+    medium: '0px',
+    large: '0px',
+    xlarge: '0px',
   },
   // fontWeight: {
   //   regular: '400',

@@ -28,6 +28,8 @@ export const Box: <T extends ElementType = typeof defaultElement>(
     }
   });
 
+  console.log(atomProps, atoms.properties);
+
   return (
     <Component ref={ref} className={classnames(className, atoms(atomProps))} {...otherProps} />
   );
