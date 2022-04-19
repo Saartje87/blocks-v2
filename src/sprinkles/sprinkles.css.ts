@@ -33,7 +33,7 @@ export const responsiveProperties = defineProperties({
       'inline-grid',
     ],
     flexDirection: ['row', 'row-reverse', 'column', 'column-reverse'],
-    justifyContent: ['flex-start', 'flex-end', 'center', 'space-between'],
+    justifyContent: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around'],
     flexWrap: ['nowrap', 'wrap'],
     alignItems: ['stretch', 'center', 'flex-start', 'flex-end'],
     paddingTop: vars.space,
@@ -47,7 +47,6 @@ export const responsiveProperties = defineProperties({
     flexGrow: [0, 1],
     flexShrink: [0, 1],
     fontSize: vars.fontSize,
-    // fontFamily: vars.fontFamily,
     // lineHeight: vars.lineHeight,
     // border: vars.border.styles,
     gap: vars.space,
@@ -66,9 +65,10 @@ export const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
-    // color: vars.color,
-    // background: vars.color,
-    // fontWeight: vars.fontWeight,
+    color: vars.color,
+    backgroundColor: vars.color,
+    fontWeight: vars.weight,
+    fontFamily: vars.fontFamily,
     fontStyle: ['normal', 'italic', 'oblique'],
     textDecoration: ['overline', 'line-through', 'underline', 'none'],
     position: ['relative', 'fixed', 'absolute', 'sticky'],

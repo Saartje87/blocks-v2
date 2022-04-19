@@ -1,43 +1,45 @@
+import { forwardRef, ReactNode } from 'react';
 import { Box } from '../Box/Box';
-import { FC, MouseEvent, ReactNode } from 'react';
 import { Atoms } from '../sprinkles/sprinkles.css';
+import { OmitHTMLProps } from '../types/utils';
 import { classnames } from '../utils/classnames';
+import * as styles from './Button.css';
 
-export interface ButtonProps extends Pick<Atoms, 'width'> {
+export interface ButtonProps extends OmitHTMLProps<HTMLButtonElement> {
   children: ReactNode;
-  disabled?: boolean;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  type?: 'button' | 'submit';
-  className?: string;
-  secondary?: boolean;
+  tone?: keyof typeof styles.tones;
+  type?: 'button' | 'submit' | 'reset';
+  variant?: keyof typeof styles.variants;
+  width?: Atoms['width'];
 }
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  disabled,
-  onClick,
-  type = 'button',
-  width,
-}) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { children, className, disabled, onClick, tone, type = 'button', variant, width, ...restProps },
+  ref,
+) {
   return (
     <Box
+      ref={ref}
       as="button"
-      alignItems="center"
-      // backgroundColor={disabled ? 'lightGray' : secondary ? 'secondary' : 'primary'}
-      className={classnames('Button', disabled && 'is-disabled', className)}
-      color="white"
-      disabled={disabled}
-      display="flex"
-      fontSize="small"
-      justifyContent="center"
-      onClick={onClick}
+      className={classnames(
+        styles.button,
+        variant && styles.variants[variant],
+        tone && styles.tones[tone],
+        className,
+      )}
       paddingX="large"
       paddingY="xsmall"
-      type={type}
+      fontSize="small"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       width={width}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
+      {...restProps}
     >
       {children}
     </Box>
   );
-};
+});

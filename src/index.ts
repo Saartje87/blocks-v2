@@ -1,5 +1,7 @@
-export { Box } from './Box/Box';
-export { Button } from './Button/Button';
+export * from './Box';
+export * from './Button';
+export * from './Stack';
+export * from './Text';
 export {
   BlocksThemeProvider,
   BlocksThemeProviderProps,

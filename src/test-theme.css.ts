@@ -11,10 +11,22 @@ export const theme = createTheme(vars, {
     large: '14px',
     xlarge: '24px',
   },
+  color: {
+    light: '#fff',
+    dark: '#000',
+  },
+  fontFamily: {
+    standard: '"Open Sans", sans-serif',
+  },
   fontSize: {
-    small: '12px',
-    medium: '14px',
-    large: '18px',
+    small: '14px',
+    standard: '16px',
+    large: '20px',
     xlarge: '24px',
+  },
+  weight: {
+    regular: '400',
+    medium: '500',
+    strong: '700',
   },
 });

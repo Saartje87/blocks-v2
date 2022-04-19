@@ -17,19 +17,27 @@ export const vars = createThemeContract({
     large: '0px',
     xlarge: '0px',
   },
-  // color: {
-  //   black: '#000',
-  //   white: '#fff',
-  // },
+  color: {
+    light: '#fff',
+    dark: '#000',
+  },
+  fontFamily: {
+    standard: '"Sora", sans-serif',
+  },
   // fontFamily: {
   //   cartoon: bdCartoonShoutFont,
   //   normal: "'Sora', sans-serif",
   // },
   fontSize: {
     small: '0px',
-    medium: '0px',
+    standard: '0px',
     large: '0px',
     xlarge: '0px',
+  },
+  weight: {
+    regular: '400',
+    medium: '500',
+    strong: '700',
   },
   // fontWeight: {
   //   regular: '400',
