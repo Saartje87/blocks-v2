@@ -1,4 +1,4 @@
-import { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef } from 'react';
+import { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Box } from '../Box';
 import { useLayer } from '../hooks/useLayer';
@@ -18,6 +18,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
   // TODO Trap focus inside the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
   const layer = useLayer();
+  const [visible, setVisible] = useState(open);
 
   // On outside click, close the dialog
   const onBackdropClick = useCallback(
@@ -29,8 +30,20 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     [onRequestClose],
   );
 
+  const onAnimationEnd = useCallback((event: React.AnimationEvent<HTMLDivElement>) => {
+    if (event.animationName === styles.backdropLeaveAnimation) {
+      setVisible(false);
+    }
+  }, []);
+
   // Prevent body scroll when dialog is open
-  usePreventBodyScroll(open);
+  usePreventBodyScroll(visible);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+    }
+  }, [open]);
 
   // On Escape key press, close the dialog
   useEffect(() => {
@@ -58,18 +71,24 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     }
   }, [open]);
 
-  if (!open) {
+  if (!open && !visible) {
     return null;
   }
 
   const dialog = (
     <Box
-      className={styles.dialogBackdrop}
+      className={classnames(styles.backdrop, !open && styles.backdropLeave)}
       display="flex"
       placeItems="center"
       onClick={onBackdropClick}
+      onAnimationEnd={onAnimationEnd}
     >
-      <Box ref={dialogRef} as="dialog" open={open} className={classnames(styles.dialog, className)}>
+      <Box
+        ref={dialogRef}
+        as="dialog"
+        open
+        className={classnames(styles.dialog, !open && styles.dialogLeave, className)}
+      >
         {children}
       </Box>
     </Box>

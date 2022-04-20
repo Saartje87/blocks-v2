@@ -62,17 +62,19 @@ export const Default = Template.bind({});
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
-  await sleep(20);
   await expect(canvas.getByRole('button', { name: 'Open Dialog' })).toBeInTheDocument();
   await userEvent.click(canvas.getByRole('button', { name: 'Open Dialog' }));
+
+  await sleep(30);
 
   const dialog = getByRole(document.body, 'dialog');
 
   await expect(dialog).toBeInTheDocument();
 
-  await sleep(20);
+  await sleep(30);
   await fireEvent.keyDown(document.body, { key: 'Escape' });
 
+  await sleep(300);
   await expect(dialog).not.toBeInTheDocument();
 };
 
