@@ -11,14 +11,16 @@ const alignMap = {
 } as const;
 
 export interface InlineProps {
+  as?: 'div' | 'ul' | 'ol';
   children: ReactNode;
-  gap: Atoms['gap'];
   align?: keyof typeof alignMap;
+  gap: Atoms['gap'];
 }
 
-export const Inline: FC<InlineProps> = ({ children, gap, align }) => {
+export const Inline: FC<InlineProps> = ({ as, children, gap, align }) => {
   return (
     <Box
+      as={as}
       display="flex"
       gap={gap}
       flexDirection="row"

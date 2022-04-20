@@ -10,14 +10,16 @@ const alignMap = {
 } as const;
 
 export interface StackProps {
+  as?: 'div' | 'ul' | 'ol';
   children: ReactNode;
-  gap: Atoms['gap'];
   align?: keyof typeof alignMap;
+  gap: Atoms['gap'];
 }
 
-export const Stack: FC<StackProps> = ({ children, gap, align }) => {
+export const Stack: FC<StackProps> = ({ as, children, gap, align }) => {
   return (
     <Box
+      as={as}
       display="flex"
       gap={gap}
       flexDirection="column"

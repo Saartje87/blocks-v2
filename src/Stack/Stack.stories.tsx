@@ -17,25 +17,59 @@ export default {
         options: Object.keys(vars.space),
       },
     },
+    children: {
+      control: {
+        type: 'none',
+      },
+    },
   },
 } as ComponentMeta<typeof Stack>;
 
-const Template: ComponentStory<typeof Stack> = ({ ...args }) => (
-  <Stack {...args}>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-  </Stack>
-);
+const Template: ComponentStory<typeof Stack> = ({ ...args }) => <Stack {...args} />;
 
-export const Demo = Template.bind({});
+export const Default = Template.bind({});
 
-Demo.play = async ({ canvasElement }) => {
+Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(canvas.getByText('3')).toBeInTheDocument();
 };
 
-Demo.args = {
+Default.args = {
   gap: ['small', 'medium', 'large'],
+  children: (
+    <>
+      <div style={{ border: '1px red solid' }}>1</div>
+      <div style={{ border: '1px red solid' }}>2</div>
+      <div style={{ border: '1px red solid' }}>3</div>
+    </>
+  ),
+};
+
+// List
+export const List = Template.bind({});
+
+List.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getByText('3')).toBeInTheDocument();
+  await expect(canvas.getByText('9')).toBeInTheDocument();
+};
+
+List.args = {
+  gap: ['small', 'medium', 'large'],
+  as: 'ol',
+  children: (
+    <>
+      <li style={{ border: '1px red solid' }}>1</li>
+      <li style={{ border: '1px red solid' }}>2</li>
+      <li style={{ border: '1px red solid' }}>3</li>
+      <li style={{ border: '1px red solid' }}>4</li>
+      <li style={{ border: '1px red solid' }}>5</li>
+      <li style={{ border: '1px red solid' }}>6</li>
+      <li style={{ border: '1px red solid' }}>7</li>
+      <li style={{ border: '1px red solid' }}>8</li>
+      <li style={{ border: '1px red solid' }}>9</li>
+    </>
+  ),
 };

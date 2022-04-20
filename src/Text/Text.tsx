@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 import { Box } from '../Box/Box';
 import { Atoms } from '../sprinkles/sprinkles.css';
 
+// TODO Extend with "HTML Attributes"
 export interface TextProps {
   children: ReactNode;
   as?: 'span' | 'p' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -29,6 +30,8 @@ export const Text: FC<TextProps> = ({
       fontWeight={fontWeight}
       fontFamily={fontFamily}
       textAlign={textAlign}
+      padding="none"
+      margin="none"
     >
       {children}
     </Box>

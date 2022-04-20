@@ -14,7 +14,7 @@ export interface ButtonProps extends OmitHTMLProps<HTMLButtonElement> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, className, disabled, onClick, tone, type = 'button', variant, width, ...restProps },
+  { children, className, tone, type = 'button', variant, width, ...restProps },
   ref,
 ) {
   return (
@@ -34,8 +34,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       alignItems="center"
       justifyContent="center"
       width={width}
-      disabled={disabled}
-      onClick={onClick}
       type={type}
       {...restProps}
     >

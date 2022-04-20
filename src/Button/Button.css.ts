@@ -4,6 +4,7 @@ import { vars } from '../theme.css';
 export const button = style({
   appearance: 'none',
   cursor: 'pointer',
+  fontFamily: 'inherit',
   ':disabled': {
     opacity: 0.5,
   },

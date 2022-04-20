@@ -11,14 +11,14 @@ export default {
 
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
 
-export const Demo = Template.bind({});
-Demo.play = async ({ canvasElement }) => {
+export const Default = Template.bind({});
+Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(canvas.getByText('Box')).toBeInTheDocument();
 };
 
-Demo.args = {
+Default.args = {
   children: 'Box',
   padding: ['small', 'medium', 'large'],
 };

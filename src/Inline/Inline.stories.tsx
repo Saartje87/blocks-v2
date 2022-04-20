@@ -17,38 +17,61 @@ export default {
         options: Object.keys(vars.space),
       },
     },
+    children: {
+      control: {
+        type: 'none',
+      },
+    },
   },
 } as ComponentMeta<typeof Inline>;
 
-const Template: ComponentStory<typeof Inline> = ({ ...args }) => (
-  <Inline {...args}>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>1</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>2</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>3</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>4</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>5</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>6</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>7</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>8</div>
-    <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>9</div>
-  </Inline>
-);
+const Template: ComponentStory<typeof Inline> = ({ ...args }) => <Inline {...args} />;
 
-export const Demo = Template.bind({});
+// Default
+export const Default = Template.bind({});
 
-Demo.play = async ({ canvasElement }) => {
+Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(canvas.getByText('3')).toBeInTheDocument();
+  await expect(canvas.getByText('9')).toBeInTheDocument();
 };
 
-Demo.args = {
+Default.args = {
   gap: ['small', 'medium', 'large'],
-  // children: (
-  //   <>
-  //     <div>1</div>
-  //     <div>2</div>
-  //     <div>3</div>
-  //   </>
-  // ),
+  children: (
+    <>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>1</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>2</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>3</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>4</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>5</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>6</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>7</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>8</div>
+      <div style={{ border: '1px red solid', width: '60px', height: '60px' }}>9</div>
+    </>
+  ),
+};
+
+// List
+export const List = Template.bind({});
+
+List.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getByText('3')).toBeInTheDocument();
+  await expect(canvas.getByText('9')).toBeInTheDocument();
+};
+
+List.args = {
+  gap: ['small', 'medium', 'large'],
+  children: (
+    <>
+      <li style={{ border: '1px red solid', width: '60px', height: '60px' }}>1</li>
+      <li style={{ border: '1px red solid', width: '60px', height: '60px' }}>2</li>
+      <li style={{ border: '1px red solid', width: '60px', height: '60px' }}>3</li>
+    </>
+  ),
+  as: 'ol',
 };

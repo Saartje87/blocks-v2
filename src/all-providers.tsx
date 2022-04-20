@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { BlocksThemeProvider } from './BlocksThemeProvider/BlocksThemeProvider';
-
 import { theme } from './test-theme.css';
+import { BlocksThemeProvider } from './ThemeProvider/ThemeProvider';
 
 export const AllProviders: FC = ({ children }) => {
   return <BlocksThemeProvider theme={theme}>{children}</BlocksThemeProvider>;

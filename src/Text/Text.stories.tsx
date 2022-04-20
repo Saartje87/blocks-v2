@@ -31,9 +31,9 @@ export default {
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
-export const Demo = Template.bind({});
+export const Default = Template.bind({});
 
-Demo.play = async ({ canvasElement }) => {
+Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(
@@ -41,7 +41,8 @@ Demo.play = async ({ canvasElement }) => {
   ).toBeInTheDocument();
 };
 
-Demo.args = {
+Default.args = {
   children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   fontFamily: 'standard',
+  as: 'span',
 };

@@ -1,6 +1,7 @@
-import { expect } from '@storybook/jest';
+import { expect, jest } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import '../reset.css';
 import { Button } from './Button';
 
 export default {
@@ -11,15 +12,19 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Demo = Template.bind({});
+export const Default = Template.bind({});
 
-Demo.play = async ({ args, canvasElement }) => {
+Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByRole('button'));
   await expect(args.onClick).toHaveBeenCalled();
 };
 
-Demo.args = {
-  children: 'Button!',
+Default.args = {
+  children: 'Button',
   variant: 'transparent',
+  tone: 'dark',
+  onClick: jest.fn(() => {
+    console.log('Button clicked');
+  }),
 };
