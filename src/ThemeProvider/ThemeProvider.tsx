@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode, useLayoutEffect } from 'react';
+import { getRootElement } from '../utils/rootElement';
 // import { vars } from '../theme';
 
 // interface Theme {
@@ -27,9 +28,13 @@ export const BlocksThemeProvider = ({ children, theme }: BlocksThemeProviderProp
   //   }
   // }, [theme]);
 
-  // useLayoutEffect(() => {
-  //   document.documentElement.classList.add(theme);
-  // }, [theme]);
+  useLayoutEffect(() => {
+    getRootElement().classList.add(theme);
 
-  return <div className={theme}>{children}</div>;
+    return () => {
+      getRootElement().classList.remove(theme);
+    };
+  }, [theme]);
+
+  return children;
 };

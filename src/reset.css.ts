@@ -6,6 +6,7 @@ globalStyle(':where(html)', {
 
 globalStyle(':where(body)', {
   margin: 0,
+  padding: 0,
   fontFamily: 'Calibri, sans-serif',
 });
 
