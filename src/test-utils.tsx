@@ -1,10 +1,10 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { FC, ReactElement } from 'react';
-import { theme } from './test-theme.css';
-import { BlocksThemeProvider } from './ThemeProvider/ThemeProvider';
+import { ThemeProvider } from './ThemeProvider/ThemeProvider';
+import { theme } from './Themes/Blockle';
 
 const AllTheProviders: FC = ({ children }) => {
-  return <BlocksThemeProvider theme={theme}>{children}</BlocksThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>

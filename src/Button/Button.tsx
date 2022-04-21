@@ -29,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       )}
       paddingX="large"
       paddingY="xsmall"
-      fontSize="small"
+      fontSize="standard"
       display="flex"
       alignItems="center"
       justifyContent="center"

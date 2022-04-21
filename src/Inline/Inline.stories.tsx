@@ -60,8 +60,9 @@ export const List = Template.bind({});
 List.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
+  await expect(canvas.getByText('1')).toBeInTheDocument();
+  await expect(canvas.getByText('2')).toBeInTheDocument();
   await expect(canvas.getByText('3')).toBeInTheDocument();
-  await expect(canvas.getByText('9')).toBeInTheDocument();
 };
 
 List.args = {

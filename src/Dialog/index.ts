@@ -1,2 +1,2 @@
 export * from './Dialog';
-export * from './Dialog.css';
+export * as dialogStyles from './Dialog.css';

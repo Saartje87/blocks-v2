@@ -1,5 +1,5 @@
 import { createTheme } from '@vanilla-extract/css';
-import { vars } from './theme.css';
+import { vars } from '../../theme.css';
 
 export const theme = createTheme(vars, {
   space: {
@@ -12,16 +12,16 @@ export const theme = createTheme(vars, {
     xlarge: '24px',
   },
   color: {
-    light: '#fff',
-    dark: '#000',
+    light: '#4ECDC4',
+    dark: '#1A535C',
   },
   fontFamily: {
     standard: '"Open Sans", sans-serif',
   },
   fontSize: {
-    small: '14px',
-    standard: '16px',
-    large: '20px',
+    small: '12px',
+    standard: '14px',
+    large: '18px',
     xlarge: '24px',
   },
   weight: {

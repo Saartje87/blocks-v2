@@ -5,12 +5,12 @@ import { Atoms } from '../sprinkles/sprinkles.css';
 // TODO Extend with "HTML Attributes"
 export interface TextProps {
   children: ReactNode;
-  as?: 'span' | 'p' | 'strong' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  as?: 'span' | 'p' | 'strong';
   color?: Atoms['color'];
   fontSize?: Atoms['fontSize'];
   fontWeight?: Atoms['fontWeight'];
   fontFamily?: Atoms['fontFamily'];
-  textAlign?: Atoms['textAlign'];
+  align?: Atoms['textAlign'];
 }
 
 export const Text: FC<TextProps> = ({
@@ -20,7 +20,7 @@ export const Text: FC<TextProps> = ({
   fontSize,
   fontWeight,
   fontFamily,
-  textAlign,
+  align,
 }) => {
   return (
     <Box
@@ -29,7 +29,7 @@ export const Text: FC<TextProps> = ({
       fontSize={fontSize}
       fontWeight={fontWeight}
       fontFamily={fontFamily}
-      textAlign={textAlign}
+      textAlign={align}
       padding="none"
       margin="none"
     >

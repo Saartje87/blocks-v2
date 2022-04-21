@@ -2,24 +2,13 @@ import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { responsiveProperties } from '../sprinkles/sprinkles.css';
-import { vars } from '../theme.css';
-import { Text } from './Text';
+import { Heading } from './Heading';
 
 export default {
-  title: 'Text',
-  component: Text,
+  title: 'Heading',
+  component: Heading,
   argTypes: {
-    fontSize: {
-      name: 'fontSize',
-      type: 'string',
-      defaultValue: 'small',
-      control: {
-        type: 'radio',
-        options: Object.keys(vars.fontSize),
-      },
-    },
     align: {
-      name: 'align',
       type: 'string',
       control: {
         type: 'radio',
@@ -27,9 +16,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof Heading>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args} />;
 
 export const Default = Template.bind({});
 
@@ -37,12 +26,14 @@ Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(
-    canvas.getByText('Lorem Ipsum is simply dummy text of the printing and typesetting industry.'),
+    canvas.getByText(
+      'Lorem Ipsum is simply dummy Heading of the printing and typesetting industry.',
+    ),
   ).toBeInTheDocument();
 };
 
 Default.args = {
-  children: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  children: 'Lorem Ipsum is simply dummy Heading of the printing and typesetting industry.',
   fontFamily: 'standard',
-  as: 'span',
+  level: '1',
 };

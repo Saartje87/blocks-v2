@@ -1,9 +1,16 @@
 import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { fireEvent, getByRole, userEvent, within } from '@storybook/testing-library';
+import {
+  fireEvent,
+  getByPlaceholderText,
+  getByRole,
+  userEvent,
+  within,
+} from '@storybook/testing-library';
 import { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { Button } from '../Button';
+import { Heading } from '../Heading';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
 import { TextInput } from '../TextInput';
@@ -18,6 +25,16 @@ export default {
   component: Dialog,
   argTypes: {
     children: {
+      control: {
+        type: 'none',
+      },
+    },
+    header: {
+      control: {
+        type: 'none',
+      },
+    },
+    footer: {
       control: {
         type: 'none',
       },
@@ -58,9 +75,47 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
   );
 };
 
+// Default
 export const Default = Template.bind({});
 
 Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await expect(canvas.getByRole('button', { name: 'Open Dialog' })).toBeInTheDocument();
+  await userEvent.click(canvas.getByRole('button', { name: 'Open Dialog' }));
+
+  await sleep(30);
+
+  await expect(getByRole(document.body, 'dialog')).toBeInTheDocument();
+  await expect(getByPlaceholderText(document.body, 'First name')).toBeInTheDocument();
+};
+
+Default.args = {
+  children: (
+    <>
+      <Stack gap="medium">
+        <Heading level="2">Hello world!</Heading>
+        <Text as="p" fontSize="small">
+          This is a dialog.
+        </Text>
+        <form onSubmit={(event) => event.preventDefault()}>
+          <Stack gap="small" align="center">
+            <TextInput name="firstName" placeholder="First name" />
+            <Button type="submit" variant="transparent">
+              Submit
+            </Button>
+          </Stack>
+        </form>
+      </Stack>
+    </>
+  ),
+  open: false,
+};
+
+// Default
+export const OpenAndClose = Template.bind({});
+
+OpenAndClose.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   await expect(canvas.getByRole('button', { name: 'Open Dialog' })).toBeInTheDocument();
@@ -79,17 +134,20 @@ Default.play = async ({ canvasElement }) => {
   await expect(dialog).not.toBeInTheDocument();
 };
 
-Default.args = {
+OpenAndClose.args = {
   children: (
     <>
-      <Stack gap="medium" padding="gutter">
-        <Text as="h1">Hello world!</Text>
-        <Text as="p">This is a dialog.</Text>
-
+      <Stack gap="medium">
+        <Heading level="2">Hello world!</Heading>
+        <Text as="p" fontSize="small">
+          This is a dialog.
+        </Text>
         <form onSubmit={(event) => event.preventDefault()}>
-          <Stack gap="small" align="right">
+          <Stack gap="small" align="center">
             <TextInput name="firstName" placeholder="First name" />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" variant="transparent">
+              Submit
+            </Button>
           </Stack>
         </form>
       </Stack>

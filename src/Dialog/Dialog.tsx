@@ -88,6 +88,9 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
         ref={dialogRef}
         as="dialog"
         open
+        display="flex"
+        flexDirection="column"
+        padding="gutter"
         className={classnames(styles.dialog, !open && styles.dialogLeave, className)}
       >
         {children}

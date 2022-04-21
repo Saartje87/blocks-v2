@@ -37,12 +37,14 @@ export const dialogLeaveAnimation = keyframes({
 });
 
 export const backdrop = style({
+  contain: 'layout',
   position: 'fixed',
   width: '100%',
   height: '100%',
   left: 0,
   top: 0,
-  backgroundColor: 'rgba(0,0,0,0.1)',
+  overflow: 'hidden',
+  backgroundColor: 'rgba(0, 0, 0, 0.2)',
   opacity: '0',
   animationName: backdropEnterAnimation,
   animationDuration: '200ms',
@@ -56,12 +58,13 @@ export const backdropLeave = style({
 export const dialog = style({
   display: 'block',
   position: 'relative',
-  padding: 0,
-  margin: 0,
-  background: 'green',
+  backgroundColor: '#fff',
   animationName: dialogEnterAnimation,
   animationDuration: '200ms',
   animationFillMode: 'both',
+  margin: 0,
+  maxHeight: '94%',
+  maxWidth: '94%',
 });
 
 export const dialogLeave = style({

@@ -2,6 +2,11 @@ import { globalStyle } from '@vanilla-extract/css';
 
 globalStyle(':where(html)', {
   lineHeight: 1.15,
+  boxSizing: 'border-box',
+});
+
+globalStyle(':where(*)', {
+  boxSizing: 'inherit',
 });
 
 globalStyle(':where(body)', {
