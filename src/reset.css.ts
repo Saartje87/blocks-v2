@@ -5,7 +5,7 @@ globalStyle(':where(html)', {
   boxSizing: 'border-box',
 });
 
-globalStyle(':where(*)', {
+globalStyle(':where(*, *::before, *::after)', {
   boxSizing: 'inherit',
 });
 

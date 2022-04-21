@@ -31,9 +31,9 @@ export const theme = createTheme(vars, {
     xlarge: '24px',
   },
   weight: {
-    regular: '400',
     medium: '500',
-    strong: '700',
+    semiBold: '600',
+    bold: '700',
   },
   border: {
     styles: {
@@ -43,5 +43,9 @@ export const theme = createTheme(vars, {
     radius: {
       standard: '4px',
     },
+  },
+  shadow: {
+    standard: '0px 0px 0px 2px rgba(0,0,0,0.2)',
+    strong: '0px 0px 0px 10px rgba(0,0,0,0.2)',
   },
 });

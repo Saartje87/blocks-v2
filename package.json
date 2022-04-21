@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Blockle blocks",
   "main": "src/index.ts",
+  "sideEffects": [
+    "src/**",
+    "*.css.ts"
+  ],
   "repository": "git@bitbucket.org:Saartje87/blocks-v2.git",
   "author": "Niek Saarberg <nsaarberg@gmail.com>",
   "license": "MIT",

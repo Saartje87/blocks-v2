@@ -44,7 +44,7 @@ export const Heading: FC<HeadingProps> = ({
     <Box
       as={resolvedProps.as}
       fontFamily={fontFamily}
-      fontWeight={fontWeight || 'strong'}
+      fontWeight={fontWeight || 'bold'}
       fontSize={fontSize || resolvedProps.fontSize}
       textAlign={align}
       padding="none"

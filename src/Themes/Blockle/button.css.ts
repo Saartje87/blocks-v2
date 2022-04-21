@@ -32,5 +32,5 @@ globalStyle(
 );
 
 globalStyle(`${buttonStyles.variants.transparent}:focus-visible`, {
-  boxShadow: `inset 0 0 0 2px ${vars.color.primary}, 0 0 0 2px ${vars.color.body}, 0 0 0 3px ${vars.color.primary}`,
+  boxShadow: `0 0 0 2px ${vars.color.primary}`,
 });
