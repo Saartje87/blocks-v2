@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
-import { TextInput } from './TextInput';
+import { TextField } from './TextField';
 
 export default {
-  title: 'TextInput',
-  component: TextInput,
+  title: 'TextField',
+  component: TextField,
   argTypes: {},
-} as ComponentMeta<typeof TextInput>;
+} as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => <TextInput {...args} />;
+const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
 
 export const Default = Template.bind({});
 

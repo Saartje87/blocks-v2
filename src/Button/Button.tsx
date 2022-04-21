@@ -7,28 +7,22 @@ import * as styles from './Button.css';
 
 export interface ButtonProps extends OmitHTMLProps<HTMLButtonElement> {
   children: ReactNode;
-  tone?: keyof typeof styles.tones;
   type?: 'button' | 'submit' | 'reset';
   variant?: keyof typeof styles.variants;
   width?: Atoms['width'];
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, className, tone, type = 'button', variant, width, ...restProps },
+  { children, className, type = 'button', variant, width, ...restProps },
   ref,
 ) {
   return (
     <Box
       ref={ref}
       as="button"
-      className={classnames(
-        styles.button,
-        variant && styles.variants[variant],
-        tone && styles.tones[tone],
-        className,
-      )}
+      className={classnames(styles.button, variant && styles.variants[variant], className)}
       paddingX="large"
-      paddingY="xsmall"
+      paddingY="small"
       fontSize="standard"
       display="flex"
       alignItems="center"

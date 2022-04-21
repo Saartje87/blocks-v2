@@ -23,7 +23,6 @@ Default.play = async ({ args, canvasElement }) => {
 Default.args = {
   children: 'Button',
   variant: 'transparent',
-  tone: 'dark',
   onClick: jest.fn(() => {
     console.log('Button clicked');
   }),

@@ -13,7 +13,7 @@ import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
-import { TextInput } from '../TextInput';
+import { TextField } from '../TextField';
 import { Dialog } from './Dialog';
 
 // setRootElement(document.getElementById('root')!);
@@ -100,7 +100,7 @@ Default.args = {
         </Text>
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
-            <TextInput name="firstName" placeholder="First name" />
+            <TextField name="firstName" placeholder="First name" />
             <Button type="submit" variant="transparent">
               Submit
             </Button>
@@ -144,7 +144,7 @@ OpenAndClose.args = {
         </Text>
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
-            <TextInput name="firstName" placeholder="First name" />
+            <TextField name="firstName" placeholder="First name" />
             <Button type="submit" variant="transparent">
               Submit
             </Button>

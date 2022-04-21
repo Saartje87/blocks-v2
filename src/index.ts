@@ -5,6 +5,6 @@ export * from './Heading';
 export * from './Inline';
 export * from './Stack';
 export * from './Text';
-export * from './TextInput';
+export * from './TextField';
 export { vars } from './theme.css';
 export * from './ThemeProvider/ThemeProvider';

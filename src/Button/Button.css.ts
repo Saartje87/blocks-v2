@@ -6,36 +6,17 @@ export const button = style({
   cursor: 'pointer',
   fontFamily: 'inherit',
   outline: 'none',
-  ':focus-visible': {
-    boxShadow: `0 0 0 1px ${vars.color.dark}`,
-  },
-  ':disabled': {
-    opacity: 0.5,
-  },
-  selectors: {
-    '&:hover:not(:disabled)': {
-      transform: 'scale(1.1)',
-    },
-  },
-});
-
-export const disabled = style({
-  appearance: 'none',
 });
 
 export const variants = styleVariants({
   transparent: {
     backgroundColor: 'transparent',
     border: 'none',
+    color: vars.color.text,
   },
   solid: {
-    backgroundColor: vars.color.dark,
-    color: vars.color.light,
+    backgroundColor: vars.color.primary,
+    color: vars.color.text,
     border: 'none',
   },
-});
-
-export const tones = styleVariants({
-  light: {},
-  dark: {},
 });
