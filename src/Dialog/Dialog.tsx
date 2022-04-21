@@ -1,8 +1,8 @@
 import { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
 import { Box } from '../Box';
 import { useLayer } from '../hooks/useLayer';
 import { usePreventBodyScroll } from '../hooks/usePreventBodyScroll';
+import { Portal } from '../Portal/Portal';
 import { classnames } from '../utils/classnames';
 import { focusFirstElement, restoreFocus } from '../utils/focusable';
 import * as styles from './Dialog.css';
@@ -76,27 +76,27 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     return null;
   }
 
-  const dialog = (
-    <Box
-      className={classnames(styles.backdrop, !open && styles.backdropLeave)}
-      display="flex"
-      placeItems="center"
-      onClick={onBackdropClick}
-      onAnimationEnd={onAnimationEnd}
-    >
+  return (
+    <Portal container={layer()}>
       <Box
-        ref={dialogRef}
-        as="dialog"
-        open
+        className={classnames(styles.backdrop, !open && styles.backdropLeave)}
         display="flex"
-        flexDirection="column"
-        padding="gutter"
-        className={classnames(styles.dialog, !open && styles.dialogLeave, className)}
+        placeItems="center"
+        onClick={onBackdropClick}
+        onAnimationEnd={onAnimationEnd}
       >
-        {children}
+        <Box
+          ref={dialogRef}
+          as="dialog"
+          open
+          display="flex"
+          flexDirection="column"
+          padding="gutter"
+          className={classnames(styles.dialog, !open && styles.dialogLeave, className)}
+        >
+          {children}
+        </Box>
       </Box>
-    </Box>
+    </Portal>
   );
-
-  return createPortal(dialog, layer()) as JSX.Element;
 };
