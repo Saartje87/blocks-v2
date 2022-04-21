@@ -5,6 +5,10 @@ export const button = style({
   appearance: 'none',
   cursor: 'pointer',
   fontFamily: 'inherit',
+  outline: 'none',
+  ':focus-visible': {
+    boxShadow: `0 0 0 1px ${vars.color.dark}`,
+  },
   ':disabled': {
     opacity: 0.5,
   },

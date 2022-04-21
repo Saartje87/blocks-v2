@@ -15,7 +15,7 @@ export interface BlocksThemeProviderProps {
   theme: string;
 }
 
-export const BlocksThemeProvider = ({ children, theme }: BlocksThemeProviderProps) => {
+export const ThemeProvider = ({ children, theme }: BlocksThemeProviderProps) => {
   // console.log('themeT', theme);
   // useLayoutEffect(() => {
   //   if (theme) {
@@ -36,5 +36,5 @@ export const BlocksThemeProvider = ({ children, theme }: BlocksThemeProviderProp
     };
   }, [theme]);
 
-  return children;
+  return <>{children}</>;
 };

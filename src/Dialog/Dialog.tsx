@@ -4,7 +4,7 @@ import { Box } from '../Box';
 import { useLayer } from '../hooks/useLayer';
 import { usePreventBodyScroll } from '../hooks/usePreventBodyScroll';
 import { classnames } from '../utils/classnames';
-import { focusFirstElement } from '../utils/focusable';
+import { focusFirstElement, restoreFocus } from '../utils/focusable';
 import * as styles from './Dialog.css';
 
 export interface DialogProps {
@@ -33,6 +33,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
   const onAnimationEnd = useCallback((event: React.AnimationEvent<HTMLDivElement>) => {
     if (event.animationName === styles.backdropLeaveAnimation) {
       setVisible(false);
+      restoreFocus();
     }
   }, []);
 

@@ -35,6 +35,7 @@ const Template: ComponentStory<typeof Dialog> = (args) => {
   return (
     <>
       <Button
+        variant="solid"
         onClick={() => {
           flushSync(() => {
             setOpen(true);
