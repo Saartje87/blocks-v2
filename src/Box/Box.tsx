@@ -7,12 +7,12 @@ type OwnProps<T extends ElementType = ElementType> = {
   as?: T;
 } & Atoms;
 
-export type Props<T extends ElementType> = OwnProps<T> & Omit<ComponentProps<T>, keyof OwnProps>;
+export type BoxProps<T extends ElementType> = OwnProps<T> & Omit<ComponentProps<T>, keyof OwnProps>;
 
 const defaultElement = 'div';
 
 export const Box: <T extends ElementType = typeof defaultElement>(
-  props: Props<T>,
+  props: BoxProps<T>,
 ) => ReactElement | null = forwardRef<Element, OwnProps>(function Box(
   { className, as: Component = defaultElement, ...restProps },
   ref,

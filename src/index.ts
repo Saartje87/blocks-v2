@@ -4,6 +4,7 @@ export * from './Dialog';
 export * from './Heading';
 export { useFlip } from './hooks/useFlip';
 export * from './Inline';
+export * from './Link';
 export * from './Stack';
 export * from './Text';
 export * from './TextField';
