@@ -12,6 +12,7 @@ export default {
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
 
 export const Default = Template.bind({});
+
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 

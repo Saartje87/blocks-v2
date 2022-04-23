@@ -10,15 +10,16 @@ globalStyle(`${buttonStyles.button}:disabled`, {
   opacity: 0.5,
 });
 
-globalStyle(`${buttonStyles.button}:hover, ${buttonStyles.button}:active`, {
-  backgroundColor: vars.color.secondary,
-});
-
 globalStyle(`${buttonStyles.button}:focus-visible`, {
   boxShadow: `0 0 0 1px ${vars.color.body}, 0 0 0 2px ${vars.color.primary}`,
 });
 
-// Variants
+// Variants - Solid
+globalStyle(`${buttonStyles.variants.solid}:hover, ${buttonStyles.variants.solid}:active`, {
+  backgroundColor: vars.color.secondary,
+});
+
+// Variants - Transparent
 globalStyle(buttonStyles.variants.transparent, {
   backgroundColor: vars.color.body,
   boxShadow: `inset 0 0 0 2px ${vars.color.primary}`,
@@ -27,7 +28,7 @@ globalStyle(buttonStyles.variants.transparent, {
 globalStyle(
   `${buttonStyles.variants.transparent}:hover, ${buttonStyles.variants.transparent}:active`,
   {
-    boxShadow: 'none',
+    boxShadow: `inset 0 0 0 3px ${vars.color.primary}`,
   },
 );
 

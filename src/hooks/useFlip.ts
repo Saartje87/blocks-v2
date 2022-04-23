@@ -45,9 +45,7 @@ function getPosition(element: HTMLElement): Position {
 
 function updatePosition(refs: Map<string, HTMLElement>, positions: Map<string, Position>) {
   Array.from(refs.entries()).forEach(([id, element]) => {
-    const position = getPosition(element);
-
-    positions.set(id, position);
+    positions.set(id, getPosition(element));
   });
 }
 
@@ -79,12 +77,16 @@ interface FlipOptions {
 export const useFlip = ({ axis = 'both' }: FlipOptions = {}) => {
   const refs = useRefValue(new Map<string, HTMLElement>());
   const positions = useRefValue(new Map<string, Position>());
+  const onTransitionEnd = useCallback(() => {
+    schedule(() => updatePosition(refs, positions));
+  }, []);
 
   useLayoutEffect(() => {
     const animations: Animate[] = [];
 
     Array.from(refs.entries()).forEach(([id, element]) => {
       if (!element.isConnected) {
+        element.removeEventListener('transitionend', onTransitionEnd);
         refs.delete(id);
         positions.delete(id);
         return;
@@ -96,9 +98,7 @@ export const useFlip = ({ axis = 'both' }: FlipOptions = {}) => {
       // Enter animation
       if (!prevPosition) {
         // Update positions again after transition finishes
-        element.addEventListener('transitionend', () => {
-          schedule(() => updatePosition(refs, positions));
-        });
+        element.addEventListener('transitionend', onTransitionEnd);
 
         animations.push({
           element,
