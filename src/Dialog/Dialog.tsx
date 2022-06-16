@@ -3,6 +3,7 @@ import { Box } from '../Box';
 import { useLayer } from '../hooks/useLayer';
 import { usePreventBodyScroll } from '../hooks/usePreventBodyScroll';
 import { Portal } from '../Portal/Portal';
+import { useFocusLock } from '../useFocusLock/useFocusLock';
 import { classnames } from '../utils/classnames';
 import { focusFirstElement, restoreFocus } from '../utils/focusable';
 import * as styles from './Dialog.css';
@@ -15,10 +16,12 @@ export interface DialogProps {
 }
 
 export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestClose }) => {
-  // TODO Trap focus inside the dialog
   const dialogRef = useRef<HTMLDialogElement>(null);
   const layer = useLayer();
   const [visible, setVisible] = useState(open);
+
+  // Trap focus inside the dialog
+  useFocusLock({ ref: dialogRef, active: open });
 
   // On outside click, close the dialog
   const onBackdropClick = useCallback(
