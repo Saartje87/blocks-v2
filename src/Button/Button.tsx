@@ -13,7 +13,7 @@ export interface ButtonProps extends OmitHTMLProps<HTMLButtonElement> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, className, type = 'button', variant, width, ...restProps },
+  { children, className, type = 'button', variant = 'solid', width = 'auto', ...restProps },
   ref,
 ) {
   return (
@@ -23,10 +23,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       className={classnames(styles.button, variant && styles.variants[variant], className)}
       paddingX="large"
       paddingY="small"
-      fontSize="standard"
-      display="flex"
+      fontSize="medium"
+      display="inline-flex"
       alignItems="center"
       justifyContent="center"
+      color="text"
       width={width}
       type={type}
       {...restProps}

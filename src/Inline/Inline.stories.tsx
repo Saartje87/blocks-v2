@@ -1,7 +1,7 @@
 import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-import { vars } from '../theme.css';
+import { themeContract } from '../theme.css';
 import { Inline } from './Inline';
 
 export default {
@@ -14,7 +14,7 @@ export default {
       defaultValue: 'small',
       control: {
         type: 'select',
-        options: Object.keys(vars.space),
+        options: Object.keys(themeContract.space),
       },
     },
     children: {

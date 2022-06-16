@@ -2,7 +2,7 @@ import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { responsiveProperties } from '../sprinkles/sprinkles.css';
-import { vars } from '../theme.css';
+import { themeContract } from '../theme.css';
 import { Text } from './Text';
 
 export default {
@@ -15,7 +15,7 @@ export default {
       defaultValue: 'small',
       control: {
         type: 'radio',
-        options: Object.keys(vars.fontSize),
+        options: Object.keys(themeContract.fontSize),
       },
     },
     align: {

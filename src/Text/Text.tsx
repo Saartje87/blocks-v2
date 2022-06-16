@@ -16,7 +16,7 @@ export interface TextProps {
 export const Text: FC<TextProps> = ({
   as = 'span',
   children,
-  color,
+  color = 'text',
   fontSize,
   fontWeight,
   fontFamily,

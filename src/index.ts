@@ -8,6 +8,7 @@ export * from './Link';
 export * from './Stack';
 export * from './Text';
 export * from './TextField';
-export { vars } from './theme.css';
+export { themeContract } from './theme.css';
 export * from './ThemeProvider/ThemeProvider';
 export { classnames } from './utils/classnames';
+export { makeTheme } from './utils/makeTheme';

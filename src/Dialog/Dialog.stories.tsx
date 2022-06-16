@@ -101,9 +101,7 @@ Default.args = {
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
             <TextField name="firstName" placeholder="First name" />
-            <Button type="submit" variant="transparent">
-              Submit
-            </Button>
+            <Button type="submit">Submit</Button>
           </Stack>
         </form>
       </Stack>
@@ -145,7 +143,7 @@ OpenAndClose.args = {
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
             <TextField name="firstName" placeholder="First name" />
-            <Button type="submit" variant="transparent">
+            <Button type="submit" variant="flat">
               Submit
             </Button>
           </Stack>

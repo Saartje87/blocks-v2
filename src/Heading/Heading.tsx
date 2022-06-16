@@ -17,7 +17,7 @@ interface ResolveComponentMap {
 const resolveComponent: ResolveComponentMap = {
   '1': { as: 'h1', fontSize: 'xlarge' },
   '2': { as: 'h2', fontSize: 'large' },
-  '3': { as: 'h3', fontSize: 'standard' },
+  '3': { as: 'h3', fontSize: 'medium' },
   '4': { as: 'h4', fontSize: 'small' },
 };
 

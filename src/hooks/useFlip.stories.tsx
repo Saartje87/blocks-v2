@@ -31,7 +31,6 @@ const FlipDemo: FC = () => {
     <Stack gap="large" padding="gutter">
       <Inline gap="medium">
         <Button
-          variant="transparent"
           onClick={() => {
             setItems((items) => shuffleArray(items));
           }}
@@ -39,7 +38,6 @@ const FlipDemo: FC = () => {
           Shuffle
         </Button>
         <Button
-          variant="transparent"
           onClick={() => {
             setItems((items) => [generateId(), ...items]);
           }}
@@ -47,7 +45,6 @@ const FlipDemo: FC = () => {
           Add
         </Button>
         <Button
-          variant="transparent"
           onClick={() => {
             setItems((items) => {
               const target = (Math.random() * items.length) >> 0;
