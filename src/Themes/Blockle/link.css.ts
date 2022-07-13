@@ -1,19 +1,18 @@
-import { globalStyle } from '@vanilla-extract/css';
-import { linkStyles } from '../..';
-import { themeContract } from '../../theme.css';
+import { style } from '@vanilla-extract/css';
+import { createComponentTheme } from '../../ThemeProvider/utils';
 
-globalStyle(linkStyles.link, {
-  outline: 'none',
-  border: 'none',
-  textDecoration: 'none',
-  color: themeContract.color.primary,
-  borderRadius: themeContract.border.radius.standard,
-});
-
-globalStyle(`${linkStyles.link}:hover`, {
-  color: themeContract.color.secondary,
-});
-
-globalStyle(`${linkStyles.link}:focus-visible`, {
-  outline: themeContract.outline.focus,
-});
+export const link = createComponentTheme('link', (vars) => ({
+  base: style({
+    outline: 'none',
+    border: 'none',
+    textDecoration: 'none',
+    color: vars.color.primary,
+    borderRadius: vars.border.radius.standard,
+    ':hover': {
+      color: vars.color.secondary,
+    },
+    ':focus-visible': {
+      outline: vars.outline.focus,
+    },
+  }),
+}));

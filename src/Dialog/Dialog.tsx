@@ -3,6 +3,7 @@ import { Box } from '../Box';
 import { useLayer } from '../hooks/useLayer';
 import { usePreventBodyScroll } from '../hooks/usePreventBodyScroll';
 import { Portal } from '../Portal/Portal';
+import { useComponentStyles } from '../ThemeProvider/useComponentStyles';
 import { useFocusLock } from '../useFocusLock/useFocusLock';
 import { classnames } from '../utils/classnames';
 import { focusFirstElement, restoreFocus } from '../utils/focusable';
@@ -75,6 +76,8 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     }
   }, [open]);
 
+  const backdropClassName = useComponentStyles('dialog', { backdrop: true });
+
   if (!open && !visible) {
     return null;
   }
@@ -82,7 +85,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
   return (
     <Portal container={layer()}>
       <Box
-        className={classnames(styles.backdrop, !open && styles.backdropLeave)}
+        className={classnames(styles.backdrop, backdropClassName, !open && styles.backdropLeave)}
         display="flex"
         placeItems="center"
         onClick={onBackdropClick}
@@ -95,6 +98,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
           display="flex"
           flexDirection="column"
           padding="gutter"
+          border="none"
           className={classnames(styles.dialog, !open && styles.dialogLeave, className)}
         >
           {children}

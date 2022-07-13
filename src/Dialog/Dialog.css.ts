@@ -59,6 +59,7 @@ export const dialog = style({
   display: 'block',
   position: 'relative',
   backgroundColor: '#fff',
+  border: 'none',
   animationName: dialogEnterAnimation,
   animationDuration: '200ms',
   animationFillMode: 'both',
