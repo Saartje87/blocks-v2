@@ -1,4 +1,4 @@
-import { ButtonProps } from '../Button';
+import { ButtonProps } from '../components/Button';
 
 type FlattenComponentThemes<T> = {
   [P in keyof T]: FlattenComponentTheme<T[P]>;

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { createComponentTheme } from '../../ThemeProvider/utils';
+import { createComponentTheme } from '../../components/BlocksProvider/utils';
 
 export const link = createComponentTheme('link', (vars) => ({
   base: style({

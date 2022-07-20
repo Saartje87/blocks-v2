@@ -1,0 +1,13 @@
+import { composeStories } from '@storybook/testing-react';
+import { render } from '../../test-utils';
+import * as stories from './Button.stories';
+
+const { Default } = composeStories(stories);
+
+describe('Button', () => {
+  it('should render with storybook', () => {
+    const { getByText } = render(<Default />);
+
+    expect(getByText('Button')).toBeInTheDocument();
+  });
+});
