@@ -1,5 +1,5 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
-import { Atoms } from '../../sprinkles/sprinkles.css';
+import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { classnames } from '../../utils/classnames';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box, BoxProps } from '../Box';

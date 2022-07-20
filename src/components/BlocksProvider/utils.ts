@@ -1,4 +1,4 @@
-import { themeContract } from '../../theme.css';
+import { vars } from '../../css/theme.css';
 import { ComponentThemes } from '../../types/theme';
 
 type ComponentTheme<T extends keyof ComponentThemes> = {
@@ -7,10 +7,10 @@ type ComponentTheme<T extends keyof ComponentThemes> = {
 
 export const createComponentTheme = <T extends keyof ComponentThemes>(
   component: T,
-  theme: (theme: typeof themeContract) => ComponentThemes[T],
+  theme: (theme: typeof vars) => ComponentThemes[T],
 ): ComponentTheme<T> => {
   return {
     component,
-    ...theme(themeContract),
+    ...theme(vars),
   };
 };

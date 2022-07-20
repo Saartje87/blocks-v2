@@ -7,7 +7,7 @@ export const useTheme = (): Theme => {
 
   if (!theme) {
     throw new Error(
-      'ThemeProviderContext not found, please add <ThemeProvider theme="THEME"> to your component tree',
+      'BlocksProviderContext not found, please add <BlocksProvider theme="THEME"> to your component tree',
     );
   }
 

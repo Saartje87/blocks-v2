@@ -1,5 +1,5 @@
 import { createTheme } from '@vanilla-extract/css';
-import { themeContract } from '../theme.css';
+import { vars } from '../css/theme.css';
 
 // Copied from @vanilla-extract/css
 declare type Primitive = string | boolean | number | null | undefined;
@@ -12,6 +12,6 @@ export type MapLeafNodes<Obj, LeafType> = {
     : never;
 };
 
-export const makeTheme = (theme: MapLeafNodes<typeof themeContract, string>) => {
-  return createTheme(themeContract, theme);
+export const makeTheme = (theme: MapLeafNodes<typeof vars, string>) => {
+  return createTheme(vars, theme);
 };

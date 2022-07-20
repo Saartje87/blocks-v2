@@ -69,6 +69,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     };
   });
 
+  // TODO Do we want to use this? We can solve it with autofocus dom attribute
   // Focus first focusable element when dialog opens
   useEffect(() => {
     if (open && dialogRef.current) {

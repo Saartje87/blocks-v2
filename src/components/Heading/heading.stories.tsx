@@ -1,7 +1,7 @@
 import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-import { responsiveProperties } from '../../sprinkles/sprinkles.css';
+import { responsiveProperties } from '../../css/sprinkles/sprinkles.css';
 import { Heading } from './Heading';
 
 export default {

@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { themeContract } from '../../theme.css';
+import { vars } from '../../css/theme.css';
 
 export const themeProvider = style({
-  fontFamily: themeContract.fontFamily.standard,
+  fontFamily: vars.fontFamily.standard,
 });

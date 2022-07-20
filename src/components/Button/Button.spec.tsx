@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/testing-react';
-import { render } from '../../test-utils';
+import { render } from '@testing-library/react';
 import * as stories from './Button.stories';
 
 const { Default } = composeStories(stories);

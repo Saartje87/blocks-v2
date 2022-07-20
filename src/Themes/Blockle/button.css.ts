@@ -1,6 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { createComponentTheme } from '../../components/BlocksProvider/utils';
-import { atoms } from '../../sprinkles/sprinkles.css';
+import { atoms } from '../../css/sprinkles/sprinkles.css';
 
 export const button = createComponentTheme('button', (vars) => ({
   base: style([

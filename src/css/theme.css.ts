@@ -7,7 +7,7 @@ export const breakpoints = {
   wide: 1200,
 } as const;
 
-export const themeContract = createThemeContract({
+export const vars = createThemeContract({
   space: {
     none: '0px',
     gutter: '0px',

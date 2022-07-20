@@ -108,7 +108,7 @@ Default.args = {
   open: false,
 };
 
-// Default
+// OpenAndClose
 export const OpenAndClose = Template.bind({});
 
 OpenAndClose.play = async ({ canvasElement }) => {

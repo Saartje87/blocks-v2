@@ -8,16 +8,16 @@ export const getFirstFocusableElement = (container: HTMLElement): HTMLElement | 
 };
 
 export const focusFirstElement = (container: HTMLElement): void => {
-  const focusable = getFirstFocusableElement(container);
+  storeActiveElement();
 
-  updateCurrentFocus();
+  const focusable = getFirstFocusableElement(container);
 
   if (focusable) {
     focusable.focus();
   }
 };
 
-export const updateCurrentFocus = () => {
+export const storeActiveElement = () => {
   previousFocus = document.activeElement;
 };
 

@@ -1,5 +1,5 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
-import { breakpoints, themeContract } from '../theme.css';
+import { breakpoints, vars } from '../theme.css';
 
 export const responsiveConfig = {
   conditions: {
@@ -36,21 +36,21 @@ export const responsiveProperties = defineProperties({
     justifyContent: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around'],
     flexWrap: ['nowrap', 'wrap'],
     alignItems: ['stretch', 'center', 'flex-start', 'flex-end'],
-    paddingTop: themeContract.space,
-    paddingBottom: themeContract.space,
-    paddingLeft: themeContract.space,
-    paddingRight: themeContract.space,
-    marginTop: themeContract.space,
-    marginBottom: themeContract.space,
-    marginRight: themeContract.space,
-    marginLeft: themeContract.space,
+    paddingTop: vars.space,
+    paddingBottom: vars.space,
+    paddingLeft: vars.space,
+    paddingRight: vars.space,
+    marginTop: vars.space,
+    marginBottom: vars.space,
+    marginRight: vars.space,
+    marginLeft: vars.space,
     flexGrow: [0, 1],
     flexShrink: [0, 1],
-    fontSize: themeContract.fontSize,
-    border: themeContract.border.styles,
-    gap: themeContract.space,
-    rowGap: themeContract.space,
-    columnGap: themeContract.space,
+    fontSize: vars.fontSize,
+    border: vars.border.styles,
+    gap: vars.space,
+    rowGap: vars.space,
+    columnGap: vars.space,
     outline: ['none'],
     textAlign: ['center', 'left', 'right', 'justify'],
   },
@@ -67,18 +67,18 @@ export const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
-    color: themeContract.color,
-    backgroundColor: themeContract.color,
-    fontWeight: themeContract.weight,
-    fontFamily: themeContract.fontFamily,
+    color: vars.color,
+    backgroundColor: vars.color,
+    fontWeight: vars.weight,
+    fontFamily: vars.fontFamily,
     fontStyle: ['normal', 'italic', 'oblique'],
     textDecoration: ['overline', 'line-through', 'underline', 'none'],
     position: ['relative', 'fixed', 'absolute', 'sticky'],
     overflow: ['hidden', 'scroll', 'visible', 'auto'],
     overflowX: ['hidden', 'scroll', 'visible', 'auto'],
     overflowY: ['hidden', 'scroll', 'visible', 'auto'],
-    boxShadow: themeContract.shadow,
-    borderRadius: themeContract.border.radius,
+    boxShadow: vars.shadow,
+    borderRadius: vars.border.radius,
     width: { auto: 'auto', full: '100%' },
     height: { auto: 'auto', full: '100%' },
     cursor: ['auto', 'pointer'],
@@ -102,4 +102,4 @@ export const atomicStyles = { ...responsiveProperties.styles, ...unresponsivePro
 export const atoms = createSprinkles(responsiveProperties, unresponsiveProperties);
 
 export type Atoms = Parameters<typeof atoms>[0];
-export type ResponsiveSpace = keyof typeof themeContract.space;
+export type ResponsiveSpace = keyof typeof vars.space;

@@ -1,5 +1,5 @@
 import { ComponentProps, ElementType, forwardRef, ReactElement } from 'react';
-import { atoms, Atoms } from '../../sprinkles/sprinkles.css';
+import { atoms, Atoms } from '../../css/sprinkles/sprinkles.css';
 import { classnames } from '../../utils/classnames';
 
 type OwnProps<T extends ElementType = ElementType> = {

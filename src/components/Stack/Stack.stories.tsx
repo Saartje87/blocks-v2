@@ -1,7 +1,7 @@
 import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
-import { themeContract } from '../../theme.css';
+import { vars } from '../../css/theme.css';
 import { Stack } from './Stack';
 
 export default {
@@ -14,7 +14,7 @@ export default {
       defaultValue: 'small',
       control: {
         type: 'radio',
-        options: Object.keys(themeContract.space),
+        options: Object.keys(vars.space),
       },
     },
     children: {

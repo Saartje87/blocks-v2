@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Atoms } from '../../sprinkles/sprinkles.css';
+import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { Box } from '../Box/Box';
 
 // TODO Extend with "HTML Attributes"
