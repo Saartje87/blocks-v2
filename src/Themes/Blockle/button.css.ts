@@ -1,22 +1,32 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { atoms } from '../../sprinkles/sprinkles.css';
 import { createComponentTheme } from '../../ThemeProvider/utils';
 
 export const button = createComponentTheme('button', (vars) => ({
-  base: style({
-    borderRadius: vars.border.radius.standard,
-    textTransform: 'uppercase',
-    fontSize: vars.fontSize.small,
-    ':hover': {
-      background: 'red',
+  base: style([
+    atoms({
+      display: 'inline-flex',
+      placeItems: 'center',
+      paddingX: 'large',
+      paddingY: 'small',
+      fontSize: 'medium',
+    }),
+    {
+      borderRadius: vars.border.radius.standard,
+      textTransform: 'uppercase',
+      fontSize: vars.fontSize.small,
+      ':hover': {
+        background: 'red',
+      },
+      ':disabled': {
+        opacity: 0.5,
+        cursor: 'auto',
+      },
+      ':focus-visible': {
+        outline: vars.outline.focus,
+      },
     },
-    ':disabled': {
-      opacity: 0.5,
-      cursor: 'auto',
-    },
-    ':focus-visible': {
-      outline: vars.outline.focus,
-    },
-  }),
+  ]),
   variant: styleVariants({
     flat: {
       color: vars.color.primary,
@@ -27,7 +37,7 @@ export const button = createComponentTheme('button', (vars) => ({
       },
     },
     solid: {
-      color: '#fff',
+      color: vars.color.white,
       border: 'none',
       background: vars.color.primary,
       ':hover': {

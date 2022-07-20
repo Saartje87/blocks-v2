@@ -8,11 +8,7 @@ export const theme: Theme = {
   button,
   link,
   dialog: {
-    // base: 'dialog',
+    base: 'dialog',
     backdrop: 'backdrop',
-    // variant: {
-    //   full: 'full',
-    //   auto: 'auto',
-    // },
   },
 };

@@ -32,8 +32,8 @@ export const theme = makeTheme({
   },
   weight: {
     medium: '500',
-    semiBold: '600',
-    bold: '700',
+    regular: '600',
+    strong: '700',
   },
   border: {
     styles: {
@@ -45,9 +45,9 @@ export const theme = makeTheme({
     },
   },
   shadow: {
-    weak: '0 1px 4px rgba(0,0,0,0.12)',
-    standard: '0 3px 6px rgba(0,0,0,0.16)',
-    strong: '0 10px 20px rgba(0,0,0,0.19)',
+    small: '0 1px 4px rgba(0,0,0,0.12)',
+    medium: '0 3px 6px rgba(0,0,0,0.16)',
+    large: '0 10px 20px rgba(0,0,0,0.19)',
   },
   outline: {
     focus: '2px solid #3fc4f1',

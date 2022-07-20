@@ -35,7 +35,7 @@ export const Heading: FC<HeadingProps> = ({
   children,
   align,
   fontSize,
-  fontWeight,
+  fontWeight = 'strong',
   fontFamily,
 }) => {
   const resolvedProps = resolveComponent[level];
@@ -44,7 +44,7 @@ export const Heading: FC<HeadingProps> = ({
     <Box
       as={resolvedProps.as}
       fontFamily={fontFamily}
-      fontWeight={fontWeight || 'bold'}
+      fontWeight={fontWeight}
       fontSize={fontSize || resolvedProps.fontSize}
       textAlign={align}
       padding="none"

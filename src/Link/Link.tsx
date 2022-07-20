@@ -18,7 +18,7 @@ export const Link: <T extends ElementType = typeof defaultElement>(
   { as = defaultElement, className, ...restProps },
   ref,
 ) {
-  const linkClassName = useComponentStyles('link');
+  const linkClassName = useComponentStyles('link', { base: true });
 
   return (
     <Box

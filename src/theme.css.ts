@@ -11,11 +11,13 @@ export const themeContract = createThemeContract({
   space: {
     none: '0px',
     gutter: '0px',
+    // xxsmall: '0px',
     xsmall: '0px',
     small: '0px',
     medium: '0px',
     large: '0px',
     xlarge: '0px',
+    // xxlarge: '0px',
   },
   color: {
     white: '#fff',
@@ -27,6 +29,7 @@ export const themeContract = createThemeContract({
     textDark: '#939eab',
     caution: '#ffbf4d',
     link: '#4da1ff',
+    // focus: 'blue',
   },
   fontFamily: {
     standard: '"Sora", sans-serif',
@@ -38,11 +41,14 @@ export const themeContract = createThemeContract({
     xlarge: '24px',
   },
   weight: {
-    // weak, regular, bold
     medium: '500',
-    semiBold: '600',
-    bold: '700',
+    regular: '600',
+    strong: '700',
   },
+  // headingWeight: {
+  //   medium: '500',
+  //   regular: '600',
+  // },
   border: {
     styles: {
       none: 'none',
@@ -53,11 +59,13 @@ export const themeContract = createThemeContract({
     },
   },
   shadow: {
-    weak: '0px 0px 0px 2px rgba(0,0,0,0.2)',
-    standard: '0px 0px 0px 2px rgba(0,0,0,0.2)',
-    strong: '0px 0px 0px 10px rgba(0,0,0,0.2)',
+    small: '0px 0px 0px 2px rgba(0,0,0,0.2)',
+    medium: '0px 0px 0px 2px rgba(0,0,0,0.2)',
+    large: '0px 0px 0px 10px rgba(0,0,0,0.2)',
   },
   outline: {
     focus: '0px 0px 0px 10px rgba(0,0,0,0.2)',
   },
+  // transition: {}
+  // transform: {}
 });

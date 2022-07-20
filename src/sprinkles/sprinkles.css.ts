@@ -18,7 +18,7 @@ export const responsiveConfig = {
   responsiveArray: ['mobile', 'tablet', 'desktop', 'wide'],
 } as const;
 
-// Exported so storybook stories can access style options
+// Exported so storybook can access style options
 export const responsiveProperties = defineProperties({
   ...responsiveConfig,
   properties: {
