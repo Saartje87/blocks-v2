@@ -2,6 +2,7 @@ import { expect } from '@storybook/jest';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { vars } from '../../css/theme.css';
+import { Box } from '../Box';
 import { Stack } from './Stack';
 
 export default {
@@ -39,9 +40,15 @@ Default.args = {
   gap: ['small', 'medium', 'large'],
   children: (
     <>
-      <div style={{ border: '1px red solid' }}>1</div>
-      <div style={{ border: '1px red solid' }}>2</div>
-      <div style={{ border: '1px red solid' }}>3</div>
+      <Box backgroundColor="caution" padding="small">
+        1
+      </Box>
+      <Box backgroundColor="caution" padding="small">
+        2
+      </Box>
+      <Box backgroundColor="caution" padding="small">
+        3
+      </Box>
     </>
   ),
 };
@@ -61,15 +68,10 @@ List.args = {
   as: 'ol',
   children: (
     <>
-      <li style={{ border: '1px red solid' }}>1</li>
-      <li style={{ border: '1px red solid' }}>2</li>
-      <li style={{ border: '1px red solid' }}>3</li>
-      <li style={{ border: '1px red solid' }}>4</li>
-      <li style={{ border: '1px red solid' }}>5</li>
-      <li style={{ border: '1px red solid' }}>6</li>
-      <li style={{ border: '1px red solid' }}>7</li>
-      <li style={{ border: '1px red solid' }}>8</li>
-      <li style={{ border: '1px red solid' }}>9</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
     </>
   ),
 };

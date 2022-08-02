@@ -1,10 +1,10 @@
-import { ComponentThemesProps } from '../../types/theme';
+import { ComponentThemes, FlattenComponentTheme } from '../../types/theme';
 import { classnames } from '../../utils/classnames';
 import { useTheme } from './useTheme';
 
-export const useComponentStyles = <T extends keyof ComponentThemesProps>(
+export const useComponentStyles = <T extends keyof ComponentThemes>(
   component: T,
-  options: Partial<ComponentThemesProps[T]>,
+  options: Partial<FlattenComponentTheme<ComponentThemes[T]>>,
 ): string | undefined => {
   const theme = useTheme();
   const componentStyles = theme[component];
@@ -18,23 +18,25 @@ export const useComponentStyles = <T extends keyof ComponentThemesProps>(
     return;
   }
 
-  return classnames(
-    // componentStyles.base,
-    // TODO Fix typings
-    ...Object.keys(options).map((key) => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const styles = componentStyles[key];
+  const classNames: string[] = [];
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      if (options[key] === true) {
-        return styles;
-      }
+  for (const key in options) {
+    const styles = componentStyles[key];
+    const value = options[key] as boolean | string;
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      return styles && styles[options[key]];
-    }),
-  );
+    if (!styles) {
+      continue;
+    }
+
+    if (options[key] === true) {
+      classNames.push(styles as unknown as string);
+      continue;
+    }
+
+    if ((value as string) in styles) {
+      classNames.push(styles[value as keyof typeof styles] as unknown as string);
+    }
+  }
+
+  return classnames(...classNames);
 };

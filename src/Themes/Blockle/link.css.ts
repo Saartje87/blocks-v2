@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { createComponentTheme } from '../../components/BlocksProvider/utils';
 
-export const link = createComponentTheme('link', (vars) => ({
+export const link = createComponentTheme('link', ({ vars }) => ({
   base: style({
     outline: 'none',
     border: 'none',

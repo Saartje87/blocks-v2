@@ -1,10 +1,10 @@
 import { ButtonProps } from '../components/Button';
 
-type FlattenComponentThemes<T> = {
+export type FlattenComponentThemes<T> = {
   [P in keyof T]: FlattenComponentTheme<T[P]>;
 };
 
-type FlattenComponentTheme<T> = {
+export type FlattenComponentTheme<T> = {
   [P in keyof T]: T[P] extends Record<string, string> ? keyof T[P] : boolean;
 };
 

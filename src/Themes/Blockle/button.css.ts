@@ -1,8 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { createComponentTheme } from '../../components/BlocksProvider/utils';
-import { atoms } from '../../css/sprinkles/sprinkles.css';
 
-export const button = createComponentTheme('button', (vars) => ({
+export const button = createComponentTheme('button', ({ atoms, vars }) => ({
   base: style([
     atoms({
       display: 'inline-flex',
