@@ -66,6 +66,27 @@ export const vars = createThemeContract({
   outline: {
     focus: '0px 0px 0px 10px rgba(0,0,0,0.2)',
   },
+  // heading: {
+  //   base: {
+  //     fontFamily: 'standard',
+  //   },
+  //   h1: {
+  //     fontSize: '32px',
+  //   },
+  //   h2: {
+  //     fontSize: '24px',
+  //   },
+  //   h3: {
+  //     fontSize: '20px',
+  //   },
+  //   h4: {
+  //     fontSize: '16px',
+  //   },
+  // },
   // transition: {}
   // transform: {}
+  // animation: {
+  //   dialogEnter: 'dialogEnterAnimation',
+  //   dialogLeave: 'dialogLeaveAnimation',
+  // },
 });
