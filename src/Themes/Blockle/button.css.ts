@@ -14,9 +14,6 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       borderRadius: vars.border.radius.standard,
       textTransform: 'uppercase',
       fontSize: vars.fontSize.small,
-      ':hover': {
-        background: 'red',
-      },
       ':disabled': {
         opacity: 0.5,
         cursor: 'auto',
@@ -31,7 +28,7 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       color: vars.color.primary,
       border: 'none',
       background: 'transparent',
-      ':hover': {
+      '&:hover:not(:disabled)': {
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
       },
     },
@@ -39,7 +36,7 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       color: vars.color.white,
       border: 'none',
       background: vars.color.primary,
-      ':hover': {
+      '&:hover:not(:disabled)': {
         backgroundColor: vars.color.secondary,
       },
     },

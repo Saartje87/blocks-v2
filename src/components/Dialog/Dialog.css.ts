@@ -20,19 +20,19 @@ export const backdropLeaveAnimation = keyframes({
 
 export const dialogEnterAnimation = keyframes({
   '0%': {
-    top: '-34px',
+    transform: 'translateY(-34px)',
   },
   '100%': {
-    top: 0,
+    transform: 'translateY(0)',
   },
 });
 
 export const dialogLeaveAnimation = keyframes({
   '0%': {
-    top: 0,
+    transform: 'translateY(0)',
   },
   '100%': {
-    top: '-34px',
+    transform: 'translateY(-34px)',
   },
 });
 

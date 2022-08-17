@@ -34,7 +34,7 @@ export const Heading: FC<HeadingProps> = ({
   level = '1',
   children,
   align,
-  fontSize,
+  fontSize = 'medium',
   fontWeight = 'strong',
   fontFamily,
 }) => {

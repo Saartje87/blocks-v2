@@ -1,7 +1,5 @@
-import { FC, MouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { useLayer } from '../../hooks/useFlip/useLayer';
-import { useFocusLock } from '../../hooks/useFocusLock/useFocusLock';
-import { usePreventBodyScroll } from '../../hooks/usePreventBodyScroll/usePreventBodyScroll';
+import { AnimationEvent, FC, MouseEvent, ReactNode, useCallback, useEffect, useRef } from 'react';
+import { useFocusLock, useLayer, usePreventBodyScroll, useVisibilityState } from '../../hooks';
 import { classnames } from '../../utils/classnames';
 import { focusFirstElement, restoreFocus } from '../../utils/focusable';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
@@ -19,7 +17,7 @@ export interface DialogProps {
 export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestClose }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const layer = useLayer();
-  const [visible, setVisible] = useState(open);
+  const { visible, hide } = useVisibilityState(open);
 
   // Trap focus inside the dialog
   useFocusLock({ ref: dialogRef, active: open });
@@ -34,21 +32,15 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
     [onRequestClose],
   );
 
-  const onAnimationEnd = useCallback((event: React.AnimationEvent<HTMLDivElement>) => {
+  const onAnimationEnd = useCallback((event: AnimationEvent<HTMLDivElement>) => {
     if (event.animationName === styles.backdropLeaveAnimation) {
-      setVisible(false);
+      hide();
       restoreFocus();
     }
   }, []);
 
   // Prevent body scroll when dialog is open
   usePreventBodyScroll(visible);
-
-  useEffect(() => {
-    if (open) {
-      setVisible(true);
-    }
-  }, [open]);
 
   // On Escape key press, close the dialog
   useEffect(() => {
@@ -79,7 +71,7 @@ export const Dialog: FC<DialogProps> = ({ children, open, className, onRequestCl
 
   const backdropClassName = useComponentStyles('dialog', { backdrop: true });
 
-  if (!open && !visible) {
+  if (!visible) {
     return null;
   }
 

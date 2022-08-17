@@ -18,7 +18,7 @@ export const Text: FC<TextProps> = ({
   children,
   color = 'text',
   fontSize,
-  fontWeight,
+  fontWeight = 'medium',
   fontFamily,
   align,
 }) => {
