@@ -7,6 +7,7 @@ export * from './components/Inline';
 export * from './components/Link';
 export * from './components/Portal';
 export * from './components/Stack';
+export * from './components/Swipe';
 export * from './components/Text';
 export * from './components/TextField';
 export { atoms } from './css/sprinkles/sprinkles.css';
