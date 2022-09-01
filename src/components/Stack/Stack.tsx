@@ -10,7 +10,7 @@ const alignMap = {
 } as const;
 
 export interface StackProps {
-  as?: 'div' | 'ul' | 'ol';
+  as?: 'div' | 'section' | 'ul' | 'ol';
   children: ReactNode;
   align?: keyof typeof alignMap;
   gap: Atoms['gap'];

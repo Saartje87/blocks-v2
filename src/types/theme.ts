@@ -20,6 +20,21 @@ export type ComponentThemes = {
   link: {
     base: string;
   };
+  progressBar: {
+    container: string;
+    bar: string;
+  };
+  checkbox: {
+    checkbox: string;
+  };
+  radio: {
+    radio: string;
+  };
+  textInput: {
+    container: string;
+    input: string;
+    label: string;
+  };
 };
 
 export type Theme = {

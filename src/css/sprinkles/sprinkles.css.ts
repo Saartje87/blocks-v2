@@ -90,6 +90,7 @@ const unresponsiveProperties = defineProperties({
     bottom: [0],
     left: [0],
     right: [0],
+    textTransform: ['lowercase', 'uppercase', 'capitalize'],
   },
   shorthands: {
     inset: ['top', 'bottom', 'left', 'right'],

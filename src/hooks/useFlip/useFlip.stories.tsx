@@ -8,7 +8,7 @@ import { Inline } from '../../components/Inline';
 import { Stack } from '../../components/Stack';
 import { useFlip } from './useFlip';
 
-const generateId = () => Math.random().toString(36).substring(7);
+const generateId = () => Math.random().toString(36).slice(7);
 
 function shuffleArray(items: string[]) {
   const array = [...items];
@@ -47,7 +47,7 @@ const FlipDemo: FC = () => {
         <Button
           onClick={() => {
             setItems((items) => {
-              const target = (Math.random() * items.length) >> 0;
+              const target = Math.trunc(Math.random() * items.length);
               const left = items.slice(0, target);
               const right = items.slice(target);
 

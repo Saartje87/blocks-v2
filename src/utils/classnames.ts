@@ -4,5 +4,5 @@ type Args = null | undefined | boolean | string;
 export const classnames = (...args: Args[]): string | undefined => {
   const className = args.filter((arg) => arg && typeof arg === 'string').join(' ');
 
-  return className ? className : undefined;
+  return className || undefined;
 };

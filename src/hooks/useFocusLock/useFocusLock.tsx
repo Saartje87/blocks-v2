@@ -13,10 +13,12 @@ export const useFocusLock = ({ ref, active }: UseFocusLock) => {
     }
 
     const handleFocus = (event: FocusEvent) => {
-      if (ref.current && event.target instanceof HTMLElement) {
-        if (!ref.current.contains(event.target)) {
-          focusFirstElement(ref.current);
-        }
+      if (
+        ref.current &&
+        event.target instanceof HTMLElement &&
+        !ref.current.contains(event.target)
+      ) {
+        focusFirstElement(ref.current);
       }
     };
 

@@ -2,16 +2,27 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   // Specifies the ESLint parser
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "plugin:prettier/recommended", "plugin:react/recommended", "plugin:storybook/recommended"],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'plugin:storybook/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:jest/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 2018,
     // Allows for the parsing of modern ECMAScript features
     sourceType: 'module',
     // Allows for the use of imports
     ecmaFeatures: {
-      jsx: true // Allows for the parsing of JSX
-
-    }
+      jsx: true, // Allows for the parsing of JSX
+    },
   },
   plugins: ['@typescript-eslint', 'react-hooks'],
   rules: {
@@ -22,11 +33,22 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/prop-types': 'off',
     'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/prevent-abbreviations': 'off',
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
+  overrides: [
+    {
+      files: ['.eslintrc.js'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
+  ],
 };

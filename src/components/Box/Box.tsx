@@ -7,6 +7,7 @@ type OwnProps<T extends ElementType = ElementType> = {
   as?: T;
 } & Atoms;
 
+// TODO Can we use HtmlHTMLAttributes to correctly type events?
 export type BoxProps<T extends ElementType> = OwnProps<T> & Omit<ComponentProps<T>, keyof OwnProps>;
 
 const defaultElement = 'div';
@@ -20,13 +21,13 @@ export const Box: <T extends ElementType = typeof defaultElement>(
   const atomProps: Record<string, unknown> = {};
   const otherProps: Record<string, unknown> = {};
 
-  Object.entries(restProps).forEach(([name, value]) => {
+  for (const [name, value] of Object.entries(restProps)) {
     if ((atoms.properties as Set<string>).has(name)) {
       atomProps[name] = value;
     } else {
       otherProps[name] = value;
     }
-  });
+  }
 
   return (
     <Component ref={ref} className={classnames(className, atoms(atomProps))} {...otherProps} />

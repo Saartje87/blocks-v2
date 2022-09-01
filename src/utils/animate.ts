@@ -21,9 +21,9 @@ export const animate = ({
 }: Animate) => {
   element.style.transition = '';
 
-  transforms.forEach(({ property, from = '' }) => {
+  for (const { property, from = '' } of transforms) {
     element.style.setProperty(property, from);
-  });
+  }
 
   const onTransitionEnd = () => {
     if (!element) {
@@ -47,9 +47,9 @@ export const animate = ({
     window.requestAnimationFrame(() => {
       element.style.transition = `transform ${duration}ms ${timingFunction}, opacity ${duration}ms ${timingFunction}`;
 
-      transforms.forEach(({ property, to = '' }) => {
+      for (const { property, to = '' } of transforms) {
         element.style.setProperty(property, to);
-      });
+      }
     });
   });
 };
