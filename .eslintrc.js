@@ -13,6 +13,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
+    'plugin:jest/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -42,4 +43,12 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['.eslintrc.js'],
+      rules: {
+        'unicorn/prefer-module': 'off',
+      },
+    },
+  ],
 };

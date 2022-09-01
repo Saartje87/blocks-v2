@@ -21,13 +21,13 @@ export const Box: <T extends ElementType = typeof defaultElement>(
   const atomProps: Record<string, unknown> = {};
   const otherProps: Record<string, unknown> = {};
 
-  Object.entries(restProps).forEach(([name, value]) => {
+  for (const [name, value] of Object.entries(restProps)) {
     if ((atoms.properties as Set<string>).has(name)) {
       atomProps[name] = value;
     } else {
       otherProps[name] = value;
     }
-  });
+  }
 
   return (
     <Component ref={ref} className={classnames(className, atoms(atomProps))} {...otherProps} />

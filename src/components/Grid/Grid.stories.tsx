@@ -11,7 +11,7 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Row>;
 
-const Template: ComponentStory<typeof Row> = (args) => (
+const Template: ComponentStory<typeof Row> = () => (
   <Stack gap="medium">
     <Row>
       <Col backgroundColor="secondary" textAlign="center" span={12}>

@@ -18,7 +18,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "storybook:test": "test-storybook",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
@@ -51,6 +52,7 @@
     "esbuild-jest": "^0.5.0",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",

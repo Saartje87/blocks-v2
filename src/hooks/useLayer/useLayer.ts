@@ -17,7 +17,7 @@ export const useLayer = () => {
   return () => {
     if (!layerRef.current) {
       layerRef.current = document.createElement('div');
-      getRootElement().appendChild(layerRef.current);
+      getRootElement().append(layerRef.current);
     }
 
     return layerRef.current;

@@ -44,9 +44,9 @@ function getPosition(element: HTMLElement): Position {
 }
 
 function updatePosition(refs: Map<string, HTMLElement>, positions: Map<string, Position>) {
-  Array.from(refs.entries()).forEach(([id, element]) => {
+  for (const [id, element] of refs.entries()) {
     positions.set(id, getPosition(element));
-  });
+  }
 }
 
 function getTransformValue(axis: 'x' | 'y' | 'both', x: number, y: number) {
@@ -84,12 +84,12 @@ export const useFlip = ({ axis = 'both' }: FlipOptions = {}) => {
   useLayoutEffect(() => {
     const animations: Animate[] = [];
 
-    Array.from(refs.entries()).forEach(([id, element]) => {
+    for (const [id, element] of refs.entries()) {
       if (!element.isConnected) {
         element.removeEventListener('transitionend', onTransitionEnd);
         refs.delete(id);
         positions.delete(id);
-        return;
+        continue;
       }
 
       const prevPosition = positions.get(id);
@@ -121,9 +121,11 @@ export const useFlip = ({ axis = 'both' }: FlipOptions = {}) => {
       }
 
       positions.set(id, position);
-    });
+    }
 
-    animations.forEach(animate);
+    for (const animation of animations) {
+      animate(animation);
+    }
   });
 
   const setRef = useCallback(
