@@ -20,6 +20,7 @@ globalStyle(':where(button, input, optgroup, select, textarea)', {
   fontSize: '100%',
   lineHeight: 1.15,
   margin: 0,
+  padding: 0,
 });
 
 globalStyle(':where(ul, ol)', {

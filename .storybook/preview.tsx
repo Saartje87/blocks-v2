@@ -1,6 +1,7 @@
 import { DecoratorFn, Parameters } from '@storybook/react';
 import { BlocksProvider } from '../src';
-import { theme } from '../src/Themes/Blockle';
+// import { theme } from '../src/Themes/Blockle';
+import { momotaroTheme } from '../src/Themes/Momotaro';
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -13,7 +14,7 @@ export const parameters: Parameters = {
 };
 
 const withProviders: DecoratorFn = (Story, context) => (
-  <BlocksProvider theme={theme}>
+  <BlocksProvider theme={momotaroTheme}>
     <Story {...context} />
   </BlocksProvider>
 );

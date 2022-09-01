@@ -24,6 +24,7 @@ export const Link: <T extends ElementType = typeof defaultElement>(
     <Box
       as={as}
       ref={ref}
+      cursor="pointer"
       className={classnames(styles.link, linkClassName, className)}
       {...restProps}
     />

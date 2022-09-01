@@ -7,13 +7,13 @@ import {
   userEvent,
   within,
 } from '@storybook/testing-library';
-import { useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Stack } from '../Stack';
 import { Text } from '../Text';
-import { TextField } from '../TextField';
+import { TextInput } from '../TextInput';
 import { Dialog } from './Dialog';
 
 const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
@@ -88,6 +88,19 @@ Default.play = async ({ canvasElement }) => {
   await expect(getByPlaceholderText(document.body, 'First name')).toBeInTheDocument();
 };
 
+const NestedDialog: FC<{ children?: ReactNode }> = ({ children }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog open={open} onRequestClose={() => setOpen(false)}>
+        {children}
+      </Dialog>
+    </>
+  );
+};
+
 Default.args = {
   children: (
     <>
@@ -96,9 +109,13 @@ Default.args = {
         <Text as="p" fontSize="small">
           This is a dialog.
         </Text>
+        <NestedDialog>
+          One
+          <NestedDialog>Two</NestedDialog>
+        </NestedDialog>
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
-            <TextField name="firstName" placeholder="First name" />
+            <TextInput name="firstName" placeholder="First name" label="First name" />
             <Button type="submit">Submit</Button>
           </Stack>
         </form>
@@ -140,7 +157,7 @@ OpenAndClose.args = {
         </Text>
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" align="center">
-            <TextField name="firstName" placeholder="First name" />
+            <TextInput name="firstName" placeholder="First name" label="First name" />
             <Button type="submit" variant="flat">
               Submit
             </Button>
