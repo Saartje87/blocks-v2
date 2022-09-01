@@ -18,7 +18,7 @@ function mapProperty<Data extends Record<string, string>>(
   return classMap;
 }
 
-const negativeSpace = mapProperty(vars.space, (value) => calc.multiply(value, -1));
+const negativeSpace = mapProperty(vars.space, (value) => calc.multiply(value as string, -1));
 
 const collapsibleResponsiveStyles = defineProperties({
   ...responsiveConfig,

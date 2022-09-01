@@ -7,7 +7,6 @@ export const link = createComponentTheme('link', ({ vars }) => ({
     border: 'none',
     textDecoration: 'none',
     color: vars.color.primary,
-    borderRadius: vars.border.radius.standard,
     ':hover': {
       color: vars.color.secondary,
     },

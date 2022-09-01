@@ -70,7 +70,6 @@ export const themeVars = makeTheme({
     small: '0 1px 4px rgba(0, 0, 0, 0.12)',
     medium: '0px 10px 30px rgba(112, 136, 210, 0.15)',
     large: '0px 10px 30px rgba(112, 136, 210, 0.2)',
-    // 0px 10px 20px rgba(64, 117, 205, 0.08)
   },
   outline: {
     focus: '1px solid #7265E3',
