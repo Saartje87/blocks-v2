@@ -1,6 +1,6 @@
 import { DecoratorFn, Parameters } from '@storybook/react';
+import spriteUrl from '../assets/icons.svg';
 import { BlocksProvider } from '../src';
-// import { theme } from '../src/Themes/Blockle';
 import { momotaroTheme } from '../src/Themes/Momotaro';
 
 export const parameters: Parameters = {
@@ -14,7 +14,7 @@ export const parameters: Parameters = {
 };
 
 const withProviders: DecoratorFn = (Story, context) => (
-  <BlocksProvider theme={momotaroTheme}>
+  <BlocksProvider theme={momotaroTheme} spriteUrl={spriteUrl}>
     <Story {...context} />
   </BlocksProvider>
 );

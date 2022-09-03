@@ -11,6 +11,9 @@ export const textInput = createComponentTheme('textInput', ({ atoms, vars }) => 
     }),
     style({
       height: 56,
+      vars: {
+        '--background-primary': '#fff',
+      },
       ':focus-within': {
         outline: vars.outline.focus,
         outlineOffset: vars.outline.offset,
@@ -26,17 +29,5 @@ export const textInput = createComponentTheme('textInput', ({ atoms, vars }) => 
     atoms({
       color: 'text',
     }),
-    {
-      transform: 'translateY(0%) scale(1)',
-      transformOrigin: 'top left',
-      transition: 'transform 120ms ease-out, opacity 120ms linear',
-      opacity: 0.8,
-      selectors: {
-        'input:not(:placeholder-shown) + &': {
-          transform: 'translateY(-80%) scale(0.75)',
-          opacity: 1,
-        },
-      },
-    },
   ]),
 }));

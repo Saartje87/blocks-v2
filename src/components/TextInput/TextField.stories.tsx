@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => (
-  <Stack gap="medium">
+  <Stack gap="large">
     <TextInput {...args} />
     <TextInput {...args} label="First name" />
     <TextInput {...args} label="Last name" />

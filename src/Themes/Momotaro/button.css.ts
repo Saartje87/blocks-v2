@@ -12,13 +12,16 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       borderRadius: 'medium',
     }),
     {
-      ':disabled': {
-        opacity: 0.5,
-        cursor: 'auto',
+      ':active': {
+        transform: 'scale(0.9)',
       },
       ':focus-visible': {
         outline: `1px solid ${vars.color.primary}`,
         outlineOffset: '2px',
+      },
+      ':disabled': {
+        opacity: 0.5,
+        cursor: 'auto',
       },
     },
   ]),

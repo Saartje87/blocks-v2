@@ -1,6 +1,7 @@
 import { Theme } from '../../types/theme';
 import { button } from './button.css';
 import { checkbox } from './checkbox.css';
+import { iconButton } from './iconButton.css';
 import { link } from './link.css';
 import { progressBar } from './progressBar.css';
 import { radio } from './radio.css';
@@ -15,6 +16,7 @@ export const momotaroTheme: Theme = {
   checkbox,
   radio,
   textInput,
+  iconButton,
   dialog: {
     base: 'dialog',
     backdrop: 'backdrop',

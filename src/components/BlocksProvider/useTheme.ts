@@ -1,15 +1,8 @@
-import { useContext } from 'react';
 import { Theme } from '../../types/theme';
-import { BlocksProviderContext } from './BlocksProviderContext';
+import { useBlocksContext } from './useBlocksContext';
 
 export const useTheme = (): Theme => {
-  const theme = useContext(BlocksProviderContext);
-
-  if (!theme) {
-    throw new Error(
-      'BlocksProviderContext not found, please add <BlocksProvider theme="THEME"> to your component tree',
-    );
-  }
+  const { theme } = useBlocksContext();
 
   return theme;
 };

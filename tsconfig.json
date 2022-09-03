@@ -19,6 +19,6 @@
     "strict": true,
     "target": "es6"
   },
-  "include": ["src/**/*", ".storybook/**/*"],
+  "include": ["src/**/*", ".storybook/**/*", "assets/**/*", "custom.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

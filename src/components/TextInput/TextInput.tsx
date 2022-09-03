@@ -1,8 +1,8 @@
-import { forwardRef, InputHTMLAttributes, ReactNode } from 'react';
+import { forwardRef, InputHTMLAttributes, ReactNode, useId } from 'react';
 import { classnames } from '../../utils';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box } from '../Box';
-import * as styles from './Input.css';
+import * as styles from './TextInput.css';
 
 export type TextInputProps = {
   className?: string;
@@ -17,41 +17,51 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function T
   { className, name, type = 'text', left, right, label, ...restProps },
   ref,
 ) {
+  const id = useId();
   const containerClassName = useComponentStyles('textInput', { container: true });
   const inputClassName = useComponentStyles('textInput', { input: true });
   const labelClassName = useComponentStyles('textInput', { label: true });
 
   return (
-    <Box
-      as="label"
-      display="flex"
-      alignItems="center"
-      className={classnames(containerClassName, className)}
-    >
-      {left && <Box paddingRight="medium">{left}</Box>}
-      <Box position="relative" flexGrow={1}>
-        <Box
-          as="input"
-          ref={ref}
-          name={name}
-          type={type}
-          placeholder={label}
-          fontSize="medium"
-          fontWeight="medium"
-          className={classnames(styles.input, inputClassName)}
-          {...restProps}
-        />
-        <Box
-          position="absolute"
-          top={0}
-          fontSize="medium"
-          fontWeight="medium"
-          className={labelClassName}
-        >
-          {label}
-        </Box>
+    <Box>
+      <Box
+        as="label"
+        display="block"
+        htmlFor={id}
+        paddingX="medium"
+        marginBottom="small"
+        className={labelClassName}
+      >
+        {label}
       </Box>
-      {right && <Box paddingLeft="medium">{right}</Box>}
+      <Box display="flex" alignItems="center" className={classnames(containerClassName, className)}>
+        {left && <Box paddingRight="medium">{left}</Box>}
+        <Box position="relative" flexGrow={1}>
+          <Box
+            as="input"
+            id={id}
+            ref={ref}
+            name={name}
+            type={type}
+            placeholder={label}
+            fontSize="medium"
+            fontWeight="medium"
+            width="full"
+            className={classnames(styles.input, inputClassName)}
+            {...restProps}
+          />
+          {/* <Box
+            position="absolute"
+            top={0}
+            fontSize="medium"
+            fontWeight="medium"
+            className={labelClassName}
+          >
+            {label}
+          </Box> */}
+        </Box>
+        {right && <Box paddingLeft="medium">{right}</Box>}
+      </Box>
     </Box>
   );
 });

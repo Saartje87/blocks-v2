@@ -35,6 +35,9 @@ export type ComponentThemes = {
     input: string;
     label: string;
   };
+  iconButton: {
+    base: string;
+  };
 };
 
 export type Theme = {
