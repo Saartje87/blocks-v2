@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { getRootElement } from '../../utils/rootElement';
 import { BlocksProvider } from '../BlocksProvider/BlocksProvider';
-import { useTheme } from '../BlocksProvider/useTheme';
+import { useBlocksContext } from '../BlocksProvider/useBlocksContext';
 
 export interface PortalProps {
   children: ReactNode;
@@ -10,10 +10,10 @@ export interface PortalProps {
 }
 
 export const Portal: FC<PortalProps> = ({ children, container }) => {
-  const theme = useTheme();
+  const context = useBlocksContext();
 
   return createPortal(
-    <BlocksProvider theme={theme}>{children}</BlocksProvider>,
+    <BlocksProvider {...context}>{children}</BlocksProvider>,
     container || getRootElement(),
   );
 };

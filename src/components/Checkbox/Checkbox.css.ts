@@ -13,7 +13,7 @@ export const checkbox = style({
   selectors: {
     [`${input}:focus-visible + &`]: {
       outline: vars.outline.focus,
-      outlineOffset: '2px',
+      outlineOffset: vars.outline.offset,
     },
     [`${input}:checked + &`]: {
       backgroundColor: vars.color.primary,
@@ -22,8 +22,8 @@ export const checkbox = style({
 });
 
 export const checkboxMark = style({
-  width: vars.icon.size.medium,
-  height: vars.icon.size.medium,
+  width: vars.icon.size.small,
+  height: vars.icon.size.small,
   color: vars.color.white,
   transform: 'scale(0)',
   transition: 'transform 0.2s ease-in-out',

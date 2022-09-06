@@ -31,10 +31,10 @@ export const radioMark = style([
     height: vars.icon.size.small,
     borderRadius: '50%',
     transform: 'scale(0)',
-    transition: 'transform 0.2s ease-in-out',
+    transition: 'transform 0.1s ease-in-out',
     selectors: {
       [`${input}:checked + ${radio} &`]: {
-        transform: 'scale(1)',
+        transform: 'scale(0.8)',
       },
     },
   },

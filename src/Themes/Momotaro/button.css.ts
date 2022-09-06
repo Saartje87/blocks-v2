@@ -1,5 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { createComponentTheme } from '../../components/BlocksProvider/utils';
+import { focusable } from './utils.css';
 
 export const button = createComponentTheme('button', ({ atoms, vars }) => ({
   base: style([
@@ -11,19 +12,7 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       fontSize: 'medium',
       borderRadius: 'medium',
     }),
-    {
-      ':active': {
-        transform: 'scale(0.9)',
-      },
-      ':focus-visible': {
-        outline: `1px solid ${vars.color.primary}`,
-        outlineOffset: '2px',
-      },
-      ':disabled': {
-        opacity: 0.5,
-        cursor: 'auto',
-      },
-    },
+    focusable,
   ]),
   variant: styleVariants({
     flat: [
@@ -33,8 +22,10 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       {
         border: 'none',
         background: 'transparent',
-        '&:hover:not(:disabled)': {
-          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: vars.color.primaryLight,
+          },
         },
       },
     ],
@@ -45,8 +36,10 @@ export const button = createComponentTheme('button', ({ atoms, vars }) => ({
       }),
       {
         border: 'none',
-        '&:hover:not(:disabled)': {
-          backgroundColor: '#8C80F8',
+        selectors: {
+          '&:hover:not(:disabled)': {
+            backgroundColor: vars.color.primaryDark,
+          },
         },
       },
     ],

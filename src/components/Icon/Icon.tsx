@@ -53,12 +53,19 @@ export type IconProps = {
     | 'play'
     | 'share'
     | 'time';
-  size: keyof typeof styles.sizes;
+  size?: keyof typeof styles.sizes;
   className?: string;
   color?: Atoms['color'];
+  label?: string;
 };
 
-export const Icon: FC<IconProps> = ({ name, className, size, color = 'text' }) => {
+export const Icon: FC<IconProps> = ({
+  name,
+  className,
+  size = 'medium',
+  color = 'text',
+  label,
+}) => {
   const { spriteUrl } = useBlocksContext();
 
   return (
@@ -67,6 +74,7 @@ export const Icon: FC<IconProps> = ({ name, className, size, color = 'text' }) =
       viewBox="0 0 100 100"
       color={color}
       className={classnames(styles.sizes[size], className)}
+      aria-label={label}
     >
       <use className={styles.iconColor} xlinkHref={`${spriteUrl}#${name}`}></use>
     </Box>

@@ -15,8 +15,10 @@ export const themeVars = makeTheme({
     body: '#F4F6FA',
     primaryLight: '#E4DFFF',
     primary: '#7265E3',
-    secondaryLight: '',
+    primaryDark: '#4D3CAB',
+    secondaryLight: '#7265E3',
     secondary: '#7FE3F0',
+    secondaryDark: '#4D3CAB',
     text: '#2D3142',
     textLight: '#9C9EB9',
     textDark: '#4C5980',
@@ -67,7 +69,7 @@ export const themeVars = makeTheme({
     },
   },
   shadow: {
-    small: '0 1px 4px rgba(0, 0, 0, 0.12)',
+    small: '0 1px 4px rgba(0, 0, 0, 0.1)',
     medium: '0px 10px 30px rgba(112, 136, 210, 0.15)',
     large: '0px 10px 30px rgba(112, 136, 210, 0.2)',
   },
@@ -77,9 +79,9 @@ export const themeVars = makeTheme({
   },
   icon: {
     size: {
-      small: '12px',
-      medium: '16px',
-      large: '20px',
+      small: '16px',
+      medium: '24px',
+      large: '32px',
     },
   },
 });

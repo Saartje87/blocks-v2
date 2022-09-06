@@ -8,11 +8,12 @@ import * as styles from './IconButton.css';
 
 export type IconButtonProps = {
   name: IconProps['name'];
-  size: IconProps['size'];
-  color: IconProps['color'];
+  size?: IconProps['size'];
+  color?: IconProps['color'];
+  label: string;
 } & Omit<OmitHTMLProps<HTMLButtonElement>, 'size' | 'type'>;
 
-export const IconButton: FC<IconButtonProps> = ({ name, size, color, ...props }) => {
+export const IconButton: FC<IconButtonProps> = ({ name, size, color, label, ...props }) => {
   const iconButtonClassName = useComponentStyles('iconButton', { base: true });
 
   return (
@@ -23,7 +24,7 @@ export const IconButton: FC<IconButtonProps> = ({ name, size, color, ...props })
       className={classnames(styles.iconButton, iconButtonClassName)}
       {...props}
     >
-      <Icon name={name} size={size} color={color} />
+      <Icon name={name} size={size} color={color} label={label} />
     </Box>
   );
 };

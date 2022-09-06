@@ -11,10 +11,23 @@ export interface ButtonProps extends OmitHTMLProps<HTMLButtonElement> {
   type?: 'button' | 'submit' | 'reset';
   variant?: 'flat' | 'solid';
   width?: Atoms['width'];
+  boxShadow?: Atoms['boxShadow'];
+  left?: ReactNode;
+  right?: ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, className, type = 'button', variant = 'solid', width, ...restProps },
+  {
+    children,
+    className,
+    type = 'button',
+    variant = 'solid',
+    width,
+    boxShadow,
+    left,
+    right,
+    ...restProps
+  },
   ref,
 ) {
   const buttonClassName = useComponentStyles('button', { base: true, variant });
@@ -26,9 +39,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       className={classnames(styles.buttonReset, buttonClassName, className)}
       width={width}
       type={type}
+      boxShadow={boxShadow}
       {...restProps}
     >
+      {left && <Box paddingRight="medium">{left}</Box>}
       {children}
+      {right && <Box paddingLeft="medium">{right}</Box>}
     </Box>
   );
 });
