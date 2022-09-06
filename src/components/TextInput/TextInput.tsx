@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, ReactNode, useId } from 'react';
+import { forwardRef, InputHTMLAttributes, ReactNode } from 'react';
 import { classnames } from '../../utils';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box } from '../Box';
@@ -12,6 +12,9 @@ export type TextInputProps = {
   right?: ReactNode;
   label: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'color' | 'width' | 'height' | 'placeholder'>;
+
+// TODO Tmp hack solution till preact added this hook
+const useId = () => Math.random().toString(36).slice(2, 11);
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
   { className, name, type = 'text', left, right, label, ...restProps },
