@@ -16,6 +16,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({ ...props }) => {
           size="medium"
           color="text"
           onClick={() => setShowPassword((shown) => !shown)}
+          label={showPassword ? 'Hide password' : 'Show password'}
         />
       }
       {...props}
