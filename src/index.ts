@@ -2,6 +2,7 @@ export * from './components/BlocksProvider';
 export * from './components/Box';
 export * from './components/Button';
 export * from './components/Dialog';
+export * from './components/Grid';
 export * from './components/Heading';
 export * from './components/Icon';
 export * from './components/IconButton';
