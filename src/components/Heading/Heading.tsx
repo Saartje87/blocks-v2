@@ -2,27 +2,18 @@ import { FC, ReactNode } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { Box } from '../Box';
 
-interface ComponentProps {
-  as: 'h1' | 'h2' | 'h3' | 'h4';
-  fontSize: Atoms['fontSize'];
-}
+type HeadingDefaults = Record<'h1' | 'h2' | 'h3' | 'h4', Atoms>;
 
-interface ResolveComponentMap {
-  '1': ComponentProps;
-  '2': ComponentProps;
-  '3': ComponentProps;
-  '4': ComponentProps;
-}
-
-const resolveComponent: ResolveComponentMap = {
-  '1': { as: 'h1', fontSize: 'xlarge' },
-  '2': { as: 'h2', fontSize: 'large' },
-  '3': { as: 'h3', fontSize: 'medium' },
-  '4': { as: 'h4', fontSize: 'small' },
+export const headingDefaults: HeadingDefaults = {
+  h1: { fontSize: 'xlarge' },
+  h2: { fontSize: 'large' },
+  h3: { fontSize: 'medium' },
+  h4: { fontSize: 'small' },
 };
 
 export interface HeadingProps {
-  level: keyof ResolveComponentMap;
+  className?: string;
+  level: 1 | 2 | 3 | 4;
   children: ReactNode;
   align?: Atoms['textAlign'];
   fontSize?: Atoms['fontSize'];
@@ -31,21 +22,24 @@ export interface HeadingProps {
 }
 
 export const Heading: FC<HeadingProps> = ({
-  level = '1',
+  className,
+  level = 1,
   children,
   align,
-  fontSize = 'medium',
+  fontSize,
   fontWeight = 'strong',
   fontFamily,
 }) => {
-  const resolvedProps = resolveComponent[level];
+  const as = `h${level}` as const;
+  const defaultStyles = headingDefaults[as];
 
   return (
     <Box
-      as={resolvedProps.as}
-      fontFamily={fontFamily}
-      fontWeight={fontWeight}
-      fontSize={fontSize || resolvedProps.fontSize}
+      as={as}
+      className={className}
+      fontFamily={fontFamily || defaultStyles.fontFamily}
+      fontWeight={fontWeight || defaultStyles.fontWeight}
+      fontSize={fontSize || defaultStyles.fontSize}
       textAlign={align}
       padding="none"
       margin="none"
