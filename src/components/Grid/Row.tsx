@@ -11,7 +11,7 @@ export type RowProps = {
   children?: ReactElement<ColProps> | ReactElement<ColProps>[];
   className?: string;
   gap?: Atoms['gap'];
-};
+} & Omit<Atoms, 'display' | 'flexWrap' | 'flexDirection'>;
 
 export const Row: FC<RowProps> = ({ children, className, gap, ...restProps }) => {
   const items = flattenChildren<ReactElement<ColProps>>(children);
