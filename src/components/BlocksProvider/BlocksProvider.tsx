@@ -1,17 +1,22 @@
 import { FC, ReactNode, useMemo } from 'react';
-import { Theme } from '../../types/theme';
 import { classnames } from '../../utils/classnames';
 import * as styles from './BlocksProvider.css';
-import { BlocksProviderContext } from './BlocksProviderContext';
+import { BlocksProviderContext, BlocksProviderContextValue } from './BlocksProviderContext';
 
-export interface BlocksProviderProps {
+export type BlocksProviderProps = {
   children: ReactNode;
-  theme: Theme;
-  spriteUrl: string;
-}
+} & BlocksProviderContextValue;
 
-export const BlocksProvider: FC<BlocksProviderProps> = ({ children, theme, spriteUrl }) => {
-  const value = useMemo(() => ({ theme, spriteUrl }), [theme, spriteUrl]);
+export const BlocksProvider: FC<BlocksProviderProps> = ({
+  children,
+  theme,
+  spriteUrl,
+  linkComponent,
+}) => {
+  const value = useMemo(
+    (): BlocksProviderContextValue => ({ theme, spriteUrl, linkComponent }),
+    [theme, spriteUrl, linkComponent],
+  );
 
   return (
     <BlocksProviderContext.Provider value={value}>

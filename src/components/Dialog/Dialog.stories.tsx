@@ -105,7 +105,7 @@ Default.args = {
   children: (
     <>
       <Stack gap="medium">
-        <Heading level="2">Hello world!</Heading>
+        <Heading level={2}>Hello world!</Heading>
         <Text as="p" fontSize="small">
           This is a dialog.
         </Text>
@@ -151,7 +151,7 @@ OpenAndClose.args = {
   children: (
     <>
       <Stack gap="medium">
-        <Heading level="2">Hello world!</Heading>
+        <Heading level={2}>Hello world!</Heading>
         <Text as="p" fontSize="small">
           This is a dialog.
         </Text>

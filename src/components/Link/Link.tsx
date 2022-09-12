@@ -1,6 +1,7 @@
 import { ElementType, forwardRef, ReactElement } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { classnames } from '../../utils/classnames';
+import { useBlocksContext } from '../BlocksProvider/useBlocksContext';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box, BoxProps } from '../Box';
 import * as styles from './Link.css';
@@ -18,7 +19,14 @@ export const Link: <T extends ElementType = typeof defaultElement>(
   { as = defaultElement, className, ...restProps },
   ref,
 ) {
+  const { linkComponent: LinkComponent } = useBlocksContext();
   const linkClassName = useComponentStyles('link', { base: true });
+
+  if (LinkComponent) {
+    return (
+      <LinkComponent className={classnames(linkClassName, className)} {...restProps} ref={ref} />
+    );
+  }
 
   return (
     <Box

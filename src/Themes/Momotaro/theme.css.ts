@@ -36,21 +36,6 @@ export const themeVars = makeTheme({
     large: '20px',
     xlarge: '24px',
   },
-  // Headings: 36 | 28 | 24 |
-  // heading: {
-  //   h1: {
-  //     fontSize: 36,
-  //     fontWeight: 500,
-  //   },
-  //   h2: {
-  //     fontSize: 28,
-  //     fontWeight: 500,
-  //   },
-  //   h3: {
-  //     fontSize: 24,
-  //     fontWeight: 500,
-  //   },
-  // },
   weight: {
     medium: '400',
     regular: '500',
