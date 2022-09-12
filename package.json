@@ -1,6 +1,6 @@
 {
   "name": "@blockle/blocks-v2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Blockle blocks",
   "main": "src/index.ts",
   "sideEffects": [
@@ -18,8 +18,9 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "storybook:test": "test-storybook",
-    "test": "jest",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src"
+    "testbb": "jest",
+    "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src/"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
@@ -67,8 +68,8 @@
   },
   "peerDependencies": {
     "@vanilla-extract/css": "^1.7.2",
-    "@vanilla-extract/sprinkles": "^1.4.1",
     "@vanilla-extract/css-utils": "^0.1.2",
+    "@vanilla-extract/sprinkles": "^1.4.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
