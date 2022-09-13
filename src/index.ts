@@ -18,4 +18,5 @@ export * from './components/TextInput';
 export { atoms } from './css/sprinkles/sprinkles.css';
 export { vars } from './css/theme.css';
 export * from './hooks';
+export { Theme } from './types/theme';
 export * from './utils';
