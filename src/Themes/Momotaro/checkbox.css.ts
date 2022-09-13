@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { createComponentTheme } from '../../components/BlocksProvider/utils';
+import { createComponentTheme } from '../../components/BlocksProvider/createComponentTheme';
 
 export const checkbox = createComponentTheme('checkbox', ({ atoms }) => ({
   checkbox: style([
