@@ -4,7 +4,7 @@ import { Theme } from '../../types/theme';
 export type BlocksProviderContextValue = {
   theme: Theme;
   spriteUrl: string;
-  linkComponent?: React.ComponentType | React.ForwardRefRenderFunction<any, any>;
+  linkComponent?: React.ComponentType<any>;
 };
 
 export const BlocksProviderContext = createContext<BlocksProviderContextValue | null>(null);
