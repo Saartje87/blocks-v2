@@ -1,6 +1,6 @@
 {
   "name": "@blockle/blocks-v2",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Blockle blocks",
   "main": "src/index.ts",
   "sideEffects": [
@@ -20,7 +20,8 @@
     "storybook:test": "test-storybook",
     "testbb": "jest",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src/"
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "svg": "svg-sprite-generate -d src/icons -o public/icons.svg"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
