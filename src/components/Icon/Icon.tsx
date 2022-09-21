@@ -76,7 +76,7 @@ export const Icon: FC<IconProps> = ({
       className={classnames(styles.sizes[size], className)}
       aria-label={label}
     >
-      <use className={styles.iconColor} xlinkHref={`${spriteUrl}#${name}`}></use>
+      <use className={styles.iconColor} xlinkHref={`${spriteUrl}#${name}`} />
     </Box>
   );
 };
