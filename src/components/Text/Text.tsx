@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
+import { MarginAndPaddingAtoms } from '../../utils/css';
 import { Box } from '../Box/Box';
 
-// TODO Extend with "HTML Attributes"
-export interface TextProps {
+export type TextProps = {
   children: ReactNode;
   as?: 'span' | 'p' | 'strong';
   color?: Atoms['color'];
@@ -11,7 +11,8 @@ export interface TextProps {
   fontWeight?: Atoms['fontWeight'];
   fontFamily?: Atoms['fontFamily'];
   align?: Atoms['textAlign'];
-}
+} & MarginAndPaddingAtoms &
+  HTMLAttributes<HTMLSpanElement>;
 
 export const Text: FC<TextProps> = ({
   as = 'span',

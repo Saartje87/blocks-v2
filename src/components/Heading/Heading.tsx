@@ -1,5 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
+import { MarginAndPaddingAtoms } from '../../utils/css';
 import { Box } from '../Box';
 
 type HeadingDefaults = Record<'h1' | 'h2' | 'h3' | 'h4', Atoms>;
@@ -11,7 +12,7 @@ export const headingDefaults: HeadingDefaults = {
   h4: { fontSize: 'small' },
 };
 
-export interface HeadingProps {
+export type HeadingProps = {
   className?: string;
   level: 1 | 2 | 3 | 4;
   children: ReactNode;
@@ -19,7 +20,8 @@ export interface HeadingProps {
   fontSize?: Atoms['fontSize'];
   fontWeight?: Atoms['fontWeight'];
   fontFamily?: Atoms['fontFamily'];
-}
+} & MarginAndPaddingAtoms &
+  HTMLAttributes<HTMLHeadingElement>;
 
 export const Heading: FC<HeadingProps> = ({
   className,
