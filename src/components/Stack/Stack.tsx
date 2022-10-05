@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
+import { MarginAndPaddingAtoms, ResponsiveDisplayFlex } from '../../utils/css';
 import { Box } from '../Box/Box';
 
 const alignMap = {
@@ -9,28 +10,29 @@ const alignMap = {
   stretch: 'stretch',
 } as const;
 
-export interface StackProps {
+export type StackProps = {
   as?: 'div' | 'section' | 'ul' | 'ol';
   children: ReactNode;
-  align?: keyof typeof alignMap;
+  alignX?: keyof typeof alignMap;
   gap: Atoms['gap'];
-  padding?: Atoms['padding'];
-  paddingLeft?: Atoms['paddingLeft'];
-  paddingRight?: Atoms['paddingRight'];
-  paddingTop?: Atoms['paddingTop'];
-  paddingBottom?: Atoms['paddingBottom'];
-  paddingX?: Atoms['paddingX'];
-  paddingY?: Atoms['paddingY'];
-}
+  display?: ResponsiveDisplayFlex;
+} & MarginAndPaddingAtoms;
 
-export const Stack: FC<StackProps> = ({ as, children, gap, align, ...restProps }) => {
+export const Stack: FC<StackProps> = ({
+  as,
+  display = 'flex',
+  children,
+  gap,
+  alignX,
+  ...restProps
+}) => {
   return (
     <Box
       as={as}
-      display="flex"
+      display={display}
       gap={gap}
       flexDirection="column"
-      alignItems={align ? alignMap[align] : undefined}
+      alignItems={alignX ? alignMap[alignX] : undefined}
       {...restProps}
     >
       {children}
