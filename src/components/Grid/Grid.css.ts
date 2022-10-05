@@ -1,8 +1,9 @@
-import { styleVariants } from '@vanilla-extract/css';
+import { ComplexStyleRule, styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 import { responsiveConfig } from '../../css/sprinkles/sprinkles.css';
-import { vars } from '../../css/theme.css';
+import { breakpoints, vars } from '../../css/theme.css';
+import { BreakpointKeys } from '../../utils/css';
 
 // TODO Move collapsibleAtoms to a separate file?
 function mapProperty<Data extends Record<string, string>>(
@@ -34,43 +35,46 @@ const collapsibleResponsiveStyles = defineProperties({
 
 export const collapsibleAtoms = createSprinkles(collapsibleResponsiveStyles);
 
-type SpanVariants<T extends number> = Record<
-  T,
-  {
-    flex: string;
-    maxWidth: string;
-  }
->;
+type BreakpointRecord<T extends number> = Record<`${BreakpointKeys}-${T}`, ComplexStyleRule>;
 
-type OffsetVariants<T extends number> = Record<
-  T,
-  {
-    marginLeft: string;
-  }
->;
+export type OffsetCount = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
+export type SpanCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-// TODO Should be reponsive to breakpoints
-// TODO Does grid handle gutters / gap better?
-function createSpanStyles(): SpanVariants<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12> {
-  const spanStyles: SpanVariants<number> = {};
-  for (let i = 1; i <= 12; i++) {
-    spanStyles[i] = {
-      flex: `0 0 ${(i / 12) * 100}%`,
-      maxWidth: `${(i / 12) * 100}%`,
-    };
+function createResponsiveStyles<T extends number>(
+  length: number,
+  createStyle: (index: number) => Record<string, string>,
+): BreakpointRecord<T> {
+  const styles: BreakpointRecord<number> = {};
+  const breakpointKeys = Object.keys(breakpoints);
+
+  for (const [i, breakpointKey] of breakpointKeys.entries()) {
+    const breakpoint = breakpointKey as BreakpointKeys;
+
+    for (let j = 1; j <= length; j++) {
+      const key = `${breakpoint}-${j}` as `${BreakpointKeys}-${typeof j}`;
+
+      if (i === 0) {
+        styles[key] = createStyle(j);
+      } else {
+        styles[key] = {
+          '@media': {
+            [`screen and (min-width: ${breakpoints[breakpoint]}px)`]: createStyle(j),
+          },
+        };
+      }
+    }
   }
-  return spanStyles;
+
+  return styles;
 }
 
-function createOffsetStyles(): OffsetVariants<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11> {
-  const offsetStyles: OffsetVariants<number> = {};
-  for (let i = 1; i <= 11; i++) {
-    offsetStyles[i] = {
-      marginLeft: `${(i / 12) * 100}%`,
-    };
-  }
-  return offsetStyles;
-}
+const offsetStyles = createResponsiveStyles<OffsetCount>(11, (i) => ({
+  marginLeft: `${(i / 12) * 100}%`,
+}));
+export const offsets = styleVariants(offsetStyles);
 
-export const spans = styleVariants(createSpanStyles());
-export const offsets = styleVariants(createOffsetStyles());
+const spanStyles = createResponsiveStyles<SpanCount>(12, (i) => ({
+  flex: `0 0 ${(i / 12) * 100}%`,
+  maxWidth: `${(i / 12) * 100}%`,
+}));
+export const spans = styleVariants(spanStyles);

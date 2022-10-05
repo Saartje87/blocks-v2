@@ -1,6 +1,9 @@
 import { Atoms } from '../css/sprinkles/sprinkles.css';
+import { breakpoints } from '../css/theme.css';
 
-export type ResponsiveValue<T> = T | [T] | [T, T] | [T, T, T];
+export type BreakpointKeys = keyof typeof breakpoints;
+
+export type ResponsiveValue<T> = T | [T] | [T, T] | [T, T, T] | [T, T, T];
 
 export type ResponsiveDisplayFlex = ResponsiveValue<'none' | 'flex' | 'inline-flex'>;
 

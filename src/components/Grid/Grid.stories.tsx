@@ -137,11 +137,11 @@ export const Responsive = Template.bind({});
 Responsive.args = {
   children: (
     <Row>
-      <Col backgroundColor="secondary" textAlign="center" span={2}>
-        2
+      <Col backgroundColor="secondary" textAlign="center" span={[6, 4]}>
+        span [6, 4]
       </Col>
-      <Col backgroundColor="secondary" textAlign="center" span={4} offset={6}>
-        4
+      <Col backgroundColor="secondary" textAlign="center" span={[6, 4]} offset={[0, 4]}>
+        span [6, 4] offset [0, 4]
       </Col>
     </Row>
   ),
