@@ -1,6 +1,7 @@
 /* eslint-env node */
 module.exports = {
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['node_modules', 'dist', 'coverage'],
   // Specifies the ESLint parser
   extends: [
     'eslint:recommended',
