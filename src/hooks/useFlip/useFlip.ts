@@ -1,5 +1,6 @@
-import { useCallback, useLayoutEffect, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { Animate, animate } from '../../utils/animate';
+import { useIsomorphicLayoutEffect } from '../useIsomorphicLayoutEffect/useIsomorphicLayoutEffect';
 
 const createScheduler = () => {
   let timeout: ReturnType<typeof setTimeout> | null = null;
@@ -81,7 +82,7 @@ export const useFlip = ({ axis = 'both' }: FlipOptions = {}) => {
     schedule(() => updatePosition(refs, positions));
   }, []);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const animations: Animate[] = [];
 
     for (const [id, element] of refs.entries()) {

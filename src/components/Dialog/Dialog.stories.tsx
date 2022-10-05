@@ -114,8 +114,8 @@ Default.args = {
           <NestedDialog>Two</NestedDialog>
         </NestedDialog>
         <form onSubmit={(event) => event.preventDefault()}>
-          <Stack gap="small" align="center">
-            <TextInput name="firstName" label="First name" />
+          <Stack gap="small" alignX="center">
+            <TextInput name="firstName" label="First name" autoFocus />
             <Button type="submit">Submit</Button>
           </Stack>
         </form>
@@ -156,8 +156,8 @@ OpenAndClose.args = {
           This is a dialog.
         </Text>
         <form onSubmit={(event) => event.preventDefault()}>
-          <Stack gap="small" align="center">
-            <TextInput name="firstName" label="First name" />
+          <Stack gap="small" alignX="center">
+            <TextInput name="firstName" label="First name" autoFocus />
             <Button type="submit" variant="flat">
               Submit
             </Button>

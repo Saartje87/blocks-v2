@@ -10,9 +10,15 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useFocusLock, useLayer, usePreventBodyScroll, useVisibilityState } from '../../hooks';
+import {
+  useFocusLock,
+  useIsomorphicLayoutEffect,
+  useLayer,
+  usePreventBodyScroll,
+  useVisibilityState,
+} from '../../hooks';
 import { classnames } from '../../utils/classnames';
-import { focusFirstElement, restoreFocus } from '../../utils/focusable';
+import { restoreFocus, storeActiveElement } from '../../utils/focusable';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box } from '../Box';
 import { Portal } from '../Portal/Portal';
@@ -50,7 +56,7 @@ export interface DialogProperties {
 }
 
 export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequestClose }) => {
-  const dialogReference = useRef<HTMLDialogElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const layer = useLayer();
   const { visible, hide } = useVisibilityState(open);
   const [enabled, setEnabled] = useState(true);
@@ -74,7 +80,7 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
   }, []);
 
   // Trap focus inside the dialog
-  useFocusLock({ ref: dialogReference, active: open && enabled });
+  useFocusLock({ ref: dialogRef, active: open && enabled });
 
   // Disable functionality of parent dialogs and return boolean if this dialog is nested
   const isNested = useNestedDialog(visible);
@@ -83,13 +89,20 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
   // Diable hook for nested dialogs, top level dialog already handles this
   usePreventBodyScroll(visible && !isNested);
 
+  // Store active element when opening the dialog so we can restore focus when
+  // closing the dialog.
+  useIsomorphicLayoutEffect(() => {
+    if (open) {
+      storeActiveElement();
+    }
+  }, [open]);
+
   // On Escape key press, close the dialog
   useEffect(() => {
     if (!open || !enabled) {
       return;
     }
 
-    // TODO Only close current dialog when user presses escape, it now closes all dialogs
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onRequestClose();
@@ -102,14 +115,6 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [open, enabled]);
-
-  // TODO Do we want to use this? We can solve it with autofocus dom attribute
-  // Focus first focusable element when dialog opens
-  useEffect(() => {
-    if (open && dialogReference.current) {
-      focusFirstElement(dialogReference.current);
-    }
-  }, [open]);
 
   const backdropClassName = useComponentStyles('dialog', { backdrop: true });
   const dialogClassName = useComponentStyles('dialog', { base: true });
@@ -129,7 +134,7 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
           onAnimationEnd={onAnimationEnd}
         >
           <Box
-            ref={dialogReference}
+            ref={dialogRef}
             as="dialog"
             open
             display="flex"

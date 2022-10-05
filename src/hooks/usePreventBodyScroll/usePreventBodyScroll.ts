@@ -1,7 +1,7 @@
-import { useLayoutEffect } from 'react';
+import { useIsomorphicLayoutEffect } from '../useIsomorphicLayoutEffect/useIsomorphicLayoutEffect';
 
 export const usePreventBodyScroll = (enabled = true) => {
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const prevValue = document.body.style.getPropertyValue('overflow');
 
     if (enabled) {
