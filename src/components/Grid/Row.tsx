@@ -2,7 +2,7 @@ import { FC, ReactElement } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { breakpoints } from '../../css/theme.css';
 import { classnames } from '../../utils';
-import { BreakpointKeys } from '../../utils/css';
+import { BreakpointKeys, ResponsiveDisplayFlex } from '../../utils/css';
 import { flattenChildren } from '../../utils/flattenChildren/flattenChildren';
 import { Box } from '../Box';
 import { ColProps, Offset } from './Col';
@@ -28,7 +28,8 @@ export type RowProps = {
   children?: ReactElement<ColProps> | ReactElement<ColProps>[];
   className?: string;
   gap?: Atoms['gap'];
-} & Omit<Atoms, 'display' | 'flexWrap' | 'flexDirection'>;
+  display?: ResponsiveDisplayFlex;
+};
 
 export const Row: FC<RowProps> = ({ children, className, gap, ...restProps }) => {
   const items = flattenChildren<ReactElement<ColProps>>(children);

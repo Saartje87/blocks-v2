@@ -4,7 +4,7 @@ export const themeVars = makeTheme({
   space: {
     none: '0px',
     gutter: '28px',
-    xsmall: '6px',
+    xsmall: '4px',
     small: '8px',
     medium: '12px',
     large: '16px',
@@ -39,7 +39,7 @@ export const themeVars = makeTheme({
   weight: {
     medium: '400',
     regular: '500',
-    strong: '500',
+    strong: '700',
   },
   border: {
     styles: {

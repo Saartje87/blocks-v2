@@ -15,68 +15,68 @@ const Template: ComponentStory<typeof Row> = ({ children }) => (
   <Stack gap="medium">{children}</Stack>
 );
 
-export const Default = Template.bind({});
+const TemplateWithChildren: ComponentStory<typeof Row> = ({ ...rowProps }) => (
+  <Stack gap="medium">
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={12}>
+        12
+      </Col>
+    </Row>
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={6}>
+        6
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={6}>
+        6
+      </Col>
+    </Row>
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={4}>
+        4
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={4}>
+        4
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={4}>
+        4
+      </Col>
+    </Row>
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={4}>
+        4
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={8}>
+        8
+      </Col>
+    </Row>
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={3}>
+        3
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={3}>
+        3
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={3}>
+        3
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={3}>
+        3
+      </Col>
+    </Row>
+    <Row {...rowProps}>
+      <Col backgroundColor="secondary" textAlign="center" span={2}>
+        2
+      </Col>
+      <Col backgroundColor="secondary" textAlign="center" span={2} offset={8}>
+        2
+      </Col>
+    </Row>
+  </Stack>
+);
 
-Default.args = {
-  children: (
-    <>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={12}>
-          12
-        </Col>
-      </Row>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={6}>
-          6
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={6}>
-          6
-        </Col>
-      </Row>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={4}>
-          4
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={4}>
-          4
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={4}>
-          4
-        </Col>
-      </Row>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={4}>
-          4
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={8}>
-          8
-        </Col>
-      </Row>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={3}>
-          3
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={3}>
-          3
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={3}>
-          3
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={3}>
-          3
-        </Col>
-      </Row>
-      <Row>
-        <Col backgroundColor="secondary" textAlign="center" span={2}>
-          2
-        </Col>
-        <Col backgroundColor="secondary" textAlign="center" span={2} offset={8}>
-          2
-        </Col>
-      </Row>
-    </>
-  ),
-};
+export const Default = TemplateWithChildren.bind({});
+
+Default.args = {};
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
