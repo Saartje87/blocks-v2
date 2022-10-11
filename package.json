@@ -21,7 +21,8 @@
     "testbb": "jest",
     "test": "NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx src/",
-    "svg": "svg-sprite-generate -d src/icons -o public/icons.svg"
+    "svg": "svg-sprite-generate -d src/icons -o public/icons.svg",
+    "ts": "tsc --noemit --project ./tsconfig.json"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
