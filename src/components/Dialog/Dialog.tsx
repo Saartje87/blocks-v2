@@ -10,15 +10,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import {
-  useFocusLock,
-  useIsomorphicLayoutEffect,
-  useLayer,
-  usePreventBodyScroll,
-  useVisibilityState,
-} from '../../hooks';
+import { useFocusLock, useLayer, usePreventBodyScroll, useVisibilityState } from '../../hooks';
+import { useRestoreFocus } from '../../hooks/useRestoreFocus/useRestoreFocus';
 import { classnames } from '../../utils/classnames';
-import { restoreFocus, storeActiveElement } from '../../utils/focusable';
 import { useComponentStyles } from '../BlocksProvider/useComponentStyles';
 import { Box } from '../Box';
 import { Portal } from '../Portal/Portal';
@@ -75,12 +69,14 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
     if (event.animationName === styles.backdropLeaveAnimation) {
       event.stopPropagation();
       hide();
-      restoreFocus();
     }
   }, []);
 
   // Trap focus inside the dialog
   useFocusLock({ ref: dialogRef, active: open && enabled });
+
+  // Store the previous active element and restore it when the dialog is closed
+  useRestoreFocus(open);
 
   // Disable functionality of parent dialogs and return boolean if this dialog is nested
   const isNested = useNestedDialog(visible);
@@ -88,14 +84,6 @@ export const Dialog: FC<DialogProperties> = ({ children, open, className, onRequ
   // Prevent body scroll when dialog is open
   // Diable hook for nested dialogs, top level dialog already handles this
   usePreventBodyScroll(visible && !isNested);
-
-  // Store active element when opening the dialog so we can restore focus when
-  // closing the dialog.
-  useIsomorphicLayoutEffect(() => {
-    if (open) {
-      storeActiveElement();
-    }
-  }, [open]);
 
   // On Escape key press, close the dialog
   useEffect(() => {

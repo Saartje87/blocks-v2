@@ -1,7 +1,6 @@
 const query =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), ' +
   'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-let previousFocus: Element | null = null;
 
 export const getFirstFocusableElement = (container: HTMLElement): HTMLElement | null => {
   const focusable = container.querySelector<HTMLElement>(query);
@@ -10,21 +9,9 @@ export const getFirstFocusableElement = (container: HTMLElement): HTMLElement | 
 };
 
 export const focusFirstElement = (container: HTMLElement): void => {
-  storeActiveElement();
-
   const focusable = getFirstFocusableElement(container);
 
   if (focusable) {
     focusable.focus();
-  }
-};
-
-export const storeActiveElement = () => {
-  previousFocus = document.activeElement;
-};
-
-export const restoreFocus = () => {
-  if (previousFocus instanceof HTMLElement) {
-    previousFocus.focus();
   }
 };
