@@ -12,6 +12,7 @@ export type TextInputProps = {
   right?: ReactNode;
   label: string;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'color' | 'width' | 'height' | 'placeholder'>;
+
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(function TextInput(
   { className, name, type = 'text', left, right, label, ...restProps },
   ref,
