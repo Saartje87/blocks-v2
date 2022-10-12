@@ -24,7 +24,7 @@ Default.play = async ({ canvasElement }) => {
 };
 
 Default.args = {
-  name: 'arrowdown',
+  name: 'arrow-right',
   size: 'medium',
   color: 'primary',
 };
