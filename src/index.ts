@@ -14,6 +14,7 @@ export * from './components/ProgressBar';
 export * from './components/Stack';
 export * from './components/Swipe';
 export * from './components/Text';
+export * from './components/TextArea';
 export * from './components/TextInput';
 export { atoms } from './css/sprinkles/sprinkles.css';
 export { vars } from './css/theme.css';
