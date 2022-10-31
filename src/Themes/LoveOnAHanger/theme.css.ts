@@ -1,4 +1,4 @@
-import { makeTheme } from '../../utils';
+import { makeTheme } from '../../utils/makeTheme';
 
 export const themeVars = makeTheme({
   space: {

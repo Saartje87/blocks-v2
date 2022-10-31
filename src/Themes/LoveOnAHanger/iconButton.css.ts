@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { createComponentTheme } from '../../components/BlocksProvider';
+import { createComponentTheme } from '../../components/BlocksProvider/createComponentTheme';
 import { focusable } from './utils.css';
 
 export const iconButton = createComponentTheme('iconButton', ({ atoms, vars }) => ({
@@ -15,6 +15,5 @@ export const iconButton = createComponentTheme('iconButton', ({ atoms, vars }) =
         },
       },
     },
-    // },
   ]),
 }));

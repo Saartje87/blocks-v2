@@ -15,6 +15,5 @@ export const iconButton = createComponentTheme('iconButton', ({ atoms, vars }) =
         },
       },
     },
-    // },
   ]),
 }));

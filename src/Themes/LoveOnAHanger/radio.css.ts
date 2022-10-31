@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { createComponentTheme } from '../../components/BlocksProvider';
+import { createComponentTheme } from '../../components/BlocksProvider/createComponentTheme';
 
 export const radio = createComponentTheme('radio', ({ atoms }) => ({
   radio: style([

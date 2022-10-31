@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { createComponentTheme } from '../../components/BlocksProvider';
+import { createComponentTheme } from '../../components/BlocksProvider/createComponentTheme';
 import { focusable } from './utils.css';
 
 export const button = createComponentTheme('button', ({ atoms, vars }) => ({
