@@ -9,7 +9,7 @@ import { radio } from './radio.css';
 import { textInput } from './textInput.css';
 import { themeVars as vars } from './theme.css';
 
-export const momotaroTheme: Theme = {
+export const theme: Theme = {
   vars,
   button,
   link,

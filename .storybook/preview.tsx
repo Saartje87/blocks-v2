@@ -1,7 +1,7 @@
 import { DecoratorFn, Parameters } from '@storybook/react';
 import spriteUrl from '../assets/icons.svg';
 import { BlocksProvider } from '../src';
-import { momotaroTheme } from '../src/Themes/Momotaro';
+import { theme } from '../src/Themes/Momotaro';
 
 export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,7 +14,7 @@ export const parameters: Parameters = {
 };
 
 const withProviders: DecoratorFn = (Story, context) => (
-  <BlocksProvider theme={momotaroTheme} spriteUrl={spriteUrl}>
+  <BlocksProvider theme={theme} spriteUrl={spriteUrl}>
     <Story {...context} />
   </BlocksProvider>
 );
