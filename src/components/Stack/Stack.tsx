@@ -1,19 +1,13 @@
 import { FC, ReactNode } from 'react';
 import { Atoms } from '../../css/sprinkles/sprinkles.css';
 import { MarginAndPaddingAtoms, ResponsiveDisplayFlex } from '../../utils/css';
+import { alignItemsMap, AlignItemsMap } from '../../utils/flexbox';
 import { Box } from '../Box/Box';
-
-const alignMap = {
-  left: 'flex-start',
-  right: 'flex-end',
-  center: 'center',
-  stretch: 'stretch',
-} as const;
 
 export type StackProps = {
   as?: 'div' | 'section' | 'ul' | 'ol';
   children: ReactNode;
-  alignX?: keyof typeof alignMap;
+  alignX?: keyof AlignItemsMap;
   gap: Atoms['gap'];
   display?: ResponsiveDisplayFlex;
 } & MarginAndPaddingAtoms;
@@ -32,7 +26,7 @@ export const Stack: FC<StackProps> = ({
       display={display}
       gap={gap}
       flexDirection="column"
-      alignItems={alignX ? alignMap[alignX] : undefined}
+      alignItems={alignX ? alignItemsMap[alignX] : undefined}
       {...restProps}
     >
       {children}
