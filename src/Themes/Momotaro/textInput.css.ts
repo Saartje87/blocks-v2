@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { createComponentTheme } from '../../components/BlocksProvider/createComponentTheme';
 
+// TODO Should be form all form elements?
 export const textInput = createComponentTheme('textInput', ({ atoms, vars }) => ({
   container: style([
     atoms({
@@ -10,7 +11,7 @@ export const textInput = createComponentTheme('textInput', ({ atoms, vars }) => 
       padding: 'large',
     }),
     style({
-      height: 56,
+      minHeight: 56,
       vars: {
         '--background-primary': '#fff',
       },

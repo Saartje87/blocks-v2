@@ -115,7 +115,7 @@ Default.args = {
         </NestedDialog>
         <form onSubmit={(event) => event.preventDefault()}>
           <Stack gap="small" alignX="center">
-            <TextInput name="firstName" label="First name" />
+            <TextInput name="firstName" label="First name" autoFocus />
             <Button type="submit">Submit</Button>
           </Stack>
         </form>

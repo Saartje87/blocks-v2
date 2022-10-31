@@ -52,12 +52,15 @@ function updatePosition(refs: Map<string, HTMLElement>, positions: Map<string, P
 
 function getTransformValue(axis: 'x' | 'y' | 'both', x: number, y: number) {
   switch (axis) {
-    case 'x':
+    case 'x': {
       return `translateX(${x}px)`;
-    case 'y':
+    }
+    case 'y': {
       return `translateY(${y}px)`;
-    case 'both':
+    }
+    case 'both': {
       return `translate(${x}px, ${y}px)`;
+    }
   }
 }
 

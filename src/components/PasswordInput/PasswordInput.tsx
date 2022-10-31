@@ -12,7 +12,7 @@ export const PasswordInput: FC<PasswordInputProps> = ({ ...props }) => {
       type={showPassword ? 'text' : 'password'}
       right={
         <IconButton
-          name={showPassword ? 'hide' : 'show'}
+          name={showPassword ? 'eye-slash' : 'eye'}
           size="medium"
           color="text"
           onClick={() => setShowPassword((shown) => !shown)}

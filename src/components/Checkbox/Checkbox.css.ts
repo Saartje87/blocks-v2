@@ -26,7 +26,7 @@ export const checkboxMark = style({
   height: vars.icon.size.small,
   color: vars.color.white,
   transform: 'scale(0)',
-  transition: 'transform 0.2s ease-in-out',
+  transition: 'transform 0.1s ease-out',
   selectors: {
     [`${input}:checked + ${checkbox} &`]: {
       transform: 'scale(1)',
