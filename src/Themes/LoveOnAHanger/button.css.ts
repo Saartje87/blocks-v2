@@ -1,5 +1,5 @@
-import { createComponentTheme } from '@blockle/blocks-v2';
 import { style, styleVariants } from '@vanilla-extract/css';
+import { createComponentTheme } from '../../components/BlocksProvider';
 import { focusable } from './utils.css';
 
 export const button = createComponentTheme('button', ({ atoms, vars }) => ({

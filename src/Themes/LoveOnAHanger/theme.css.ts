@@ -1,6 +1,4 @@
-// import { makeTheme } from '../../utils/makeTheme';
-
-import { makeTheme } from '@blockle/blocks-v2';
+import { makeTheme } from '../../utils';
 
 export const themeVars = makeTheme({
   space: {

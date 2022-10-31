@@ -1,5 +1,5 @@
-import { createComponentTheme } from '@blockle/blocks-v2';
 import { style } from '@vanilla-extract/css';
+import { createComponentTheme } from '../../components/BlocksProvider';
 
 export const radio = createComponentTheme('radio', ({ atoms }) => ({
   radio: style([
