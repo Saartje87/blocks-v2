@@ -1,6 +1,6 @@
 {
   "name": "@blockle/blocks-v2",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Blockle blocks",
   "main": "src/index.ts",
   "sideEffects": [
